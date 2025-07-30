@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var cam: Camera2D = $"../Camera2D"
 
+var spRotation : float = 5
 
 var cdTeia : float = 5
 var SPEED = 300.0
@@ -18,7 +19,7 @@ func podeTeia():
 	await get_tree().create_timer(cdTeia).timeout
 	vaiTeia = true
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#Movimentacao da CAMERA
 	#if position.y <= cam.position.y:
 	cam.position.y = position.y
@@ -38,12 +39,14 @@ func _physics_process(_delta: float) -> void:
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		
-		
 	input_vector = input_vector.normalized()
 	
 	velocity = input_vector * SPEED
 	move_and_slide()
-
+	
+	if input_vector.length() > 0.1:
+		var direction = input_vector.angle()
+		rotation = lerp_angle(rotation, direction, spRotation * delta)
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	shop = true
