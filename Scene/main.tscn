@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=3 format=3 uid="uid://dgf0hmwkeohcy"]
 
-[ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6udf"]
 size = Vector2(1291, 49)
