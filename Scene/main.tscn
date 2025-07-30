@@ -1,21 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgf0hmwkeohcy"]
+[gd_scene load_steps=3 format=3 uid="uid://dgf0hmwkeohcy"]
 
 [ext_resource type="Texture2D" uid="uid://cq4jpaqsaminu" path="res://icon.svg" id="1_f6udf"]
-[ext_resource type="Script" path="res://Scene/aranhinha.gd" id="1_sblpm"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sblpm"]
-radius = 32.0
+[ext_resource type="PackedScene" uid="uid://dhx60d5i3msnk" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Aranhinha" type="CharacterBody2D" parent="."]
-script = ExtResource("1_sblpm")
+[node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
+position = Vector2(639, 358)
 
-[node name="Sprite2D" type="Sprite2D" parent="Aranhinha"]
-position = Vector2(444, 283)
-scale = Vector2(0.5, 0.5)
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(644.436, 875.436)
+scale = Vector2(-9.93975, -1.26635)
 texture = ExtResource("1_f6udf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aranhinha"]
-position = Vector2(444, 283)
-shape = SubResource("CircleShape2D_sblpm")
