@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfo5k8xf7psfo"]
 
 [ext_resource type="Script" uid="uid://dtdr3n4ewq4oe" path="res://Scripts/aranhinha.gd" id="1_yfdyg"]
-[ext_resource type="Texture2D" uid="uid://cq4jpaqsaminu" path="res://icon.svg" id="2_hblxq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r1b3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sblpm"]
-radius = 32.0
+radius = 16.1245
 
 [node name="Aranhinha" type="CharacterBody2D"]
 script = ExtResource("1_yfdyg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_hblxq")
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_r1b3v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sblpm")

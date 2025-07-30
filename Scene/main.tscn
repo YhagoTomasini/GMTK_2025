@@ -1,17 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgf0hmwkeohcy"]
+[gd_scene load_steps=7 format=3 uid="uid://cne0sfdegjkkb"]
 
-[ext_resource type="PackedScene" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r34rm"]
+size = Vector2(876, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sblpm"]
+size = Vector2(328, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6udf"]
-size = Vector2(1291, 49)
+size = Vector2(1280, 49)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wwxx"]
+radius = 430.094
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6udf"]
+radius = 503.954
 
 [node name="main" type="Node2D"]
 
 [node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
-position = Vector2(636, 636)
+position = Vector2(640, 636)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 540)
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+position = Vector2(0, 204)
+shape = SubResource("RectangleShape2D_r34rm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1117, 360)
+shape = SubResource("RectangleShape2D_sblpm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(165, 361)
+shape = SubResource("RectangleShape2D_sblpm")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(635.5, 694.5)
+position = Vector2(641, 694.5)
 shape = SubResource("RectangleShape2D_f6udf")
+
+[node name="CollisionLoja" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 671)
+shape = SubResource("CircleShape2D_2wwxx")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Lolja" type="Area2D" parent="."]
+
+[node name="AreaLoja" type="CollisionShape2D" parent="Lolja"]
+position = Vector2(4, 665)
+shape = SubResource("CircleShape2D_f6udf")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]
