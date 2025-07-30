@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://diipf0ahhj4yh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cokcd"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_min = 0.0
+color = Color(0.643137, 0.843137, 1, 1)
+turbulence_enabled = true
+
+[node name="TesteDeChuva" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_cokcd")
