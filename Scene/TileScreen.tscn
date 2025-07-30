@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://4r63ua24jq2y"]
+[gd_scene load_steps=3 format=3 uid="uid://4r63ua24jq2y"]
+
+[ext_resource type="FontFile" uid="uid://dwuka0482ilys" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_cqt20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqt20"]
 
 [node name="TileScreen" type="Control"]
 layout_mode = 3
@@ -35,10 +39,13 @@ size_flags_vertical = 4
 
 [node name="Start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cqt20")
+theme_override_font_sizes/font_size = 64
 text = "Start"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_cqt20")
 
 [node name="Quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
