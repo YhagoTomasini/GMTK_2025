@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=3 format=3 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6udf"]
+size = Vector2(1291, 49)
 
 [node name="main" type="Node2D"]
 
 [node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
-position = Vector2(309, 192)
+position = Vector2(636, 636)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(635.5, 694.5)
+shape = SubResource("RectangleShape2D_f6udf")
