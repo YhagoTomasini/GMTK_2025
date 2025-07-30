@@ -2,18 +2,37 @@ extends CharacterBody2D
 
 @onready var cam: Camera2D = $"../Camera2D"
 
-const SPEED = 300.0
-var shop : bool = false
 
+var cdTeia : float = 5
+var SPEED = 300.0
+
+#BOOLEANAS
+var shop : bool = false
+var vaiTeia : bool = true
+
+func _ready() -> void:
+	pass
+
+func podeTeia():
+	vaiTeia = false
+	await get_tree().create_timer(cdTeia).timeout
+	vaiTeia = true
 
 func _physics_process(_delta: float) -> void:
+	#Movimentacao da CAMERA
 	#if position.y <= cam.position.y:
 	cam.position.y = position.y
 	
+	#TEIA
+	if vaiTeia:
+		pass
+	
+	#Acesso a LOJA
 	if shop:
 		if Input.is_action_just_pressed("ui_accept"):
 			print("Mudar de cena para a lolja")  
-		
+	
+	#MOVIMENTACAO
 	var input_vector = Vector2.ZERO
 	
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

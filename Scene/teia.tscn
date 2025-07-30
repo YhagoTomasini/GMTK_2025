@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dputv2macqr3c"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uwx0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8xuf"]
+radius = 3.0
+
+[node name="Teia" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = SubResource("CanvasTexture_uwx0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l8xuf")
+debug_color = Color(0, 1, 0.701961, 0.419608)
