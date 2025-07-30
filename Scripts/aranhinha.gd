@@ -5,15 +5,16 @@ const sceneTeia = preload("res://Scene/teia.tscn")
 
 var speedRotation : float = 5
 
-var cdTeia : float = 5
-var speed = 300.0
+var cdTeia : float = 3
+var speed = 160.0
 
 #BOOLEANAS
-var shop : bool = false
-var vaiTeia : bool = true
+var shop : bool
+var vaiTeia : bool
 
 func _ready() -> void:
-	pass
+	shop = false
+	vaiTeia = true
 
 func podeTeia():
 	vaiTeia = false
@@ -21,6 +22,7 @@ func podeTeia():
 	vaiTeia = true
 
 func cuspir():
+	podeTeia()
 	var projetil = sceneTeia.instantiate()
 	get_parent().add_child(projetil)
 	projetil.position = position
@@ -55,9 +57,10 @@ func _physics_process(delta: float) -> void:
 		var direction = input_vector.angle()
 		rotation = lerp_angle(rotation, direction, speedRotation * delta)
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	shop = true
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Aranhinha":
+		shop = true
 
-
-func _on_area_2d_body_exited(_body: Node2D) -> void:
-	shop = false
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == "Aranhinha":
+		shop = false
