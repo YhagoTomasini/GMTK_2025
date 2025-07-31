@@ -1,6 +1,11 @@
 extends Area2D
 
+@onready var sprite: Sprite2D = $sprite
 
+func _ready() -> void:
+	var rot = randf_range(0, 360)
+	sprite.rotation = rot
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		body.nChiclete += 1

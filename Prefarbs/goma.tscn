@@ -14,7 +14,6 @@ position = Vector2(-0.0649414, 0)
 shape = SubResource("RectangleShape2D_1xcnr")
 
 [node name="sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.435294, 0.717647, 1)
 texture = ExtResource("2_6vvrw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,14 +10,6 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var text_casulos: Label = $"../HUD/Control/TextCasulos"
 @onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
 
-#VARAVEIS
-var speedRotation : float = 5
-var cdTeia : float = 3
-var cdTimeTeia : float = 0
-var cdCasulo : float = 10
-var cdTimeCasulo : float = 0
-var casulos : int = 3
-var speed = 160.0
 
 #BOOLEANAS
 var shop : bool
@@ -32,7 +24,6 @@ var nChiclete : int
 
 
 func _ready() -> void:
-	Globals.casulos = casulos
 	text_casulos.text = str(Globals.casulos)
 	
 	nChiclete = 0
@@ -45,7 +36,7 @@ func _ready() -> void:
 func podeTeia():
 	vaiTeia = false
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
-	await get_tree().create_timer(cdTeia).timeout
+	await get_tree().create_timer(Globals.cdTeia).timeout
 	visual_cd_teia.modulate = Color(0.5, 1, 0.5, 0.5)
 	vaiTeia = true
 
@@ -59,7 +50,7 @@ func cuspir():
 
 func generateCasulo():
 	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
-	await get_tree().create_timer(cdCasulo).timeout
+	await get_tree().create_timer(Globals.cdCasulo).timeout
 	visual_cd_casulo.modulate = Color(0.5, 1, 0.5, 0.5)
 	Globals.casulos += 1
 	text_casulos.text = str(Globals.casulos)
@@ -73,11 +64,14 @@ func casulo():
 	sprite_2d.modulate = Color(0, 0, 0, 1)
 	anim_sprite.play("Casulo")
 	
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(3).timeout
+	anim_sprite.play("Descasulo")
+	
+	await get_tree().create_timer(1).timeout
 	foraDaCasinha = true
 	collisionArana.disabled = false
 	sprite_2d.modulate = Color(1, 1, 1, 1)
-	anim_sprite.play("Descasulo")
+	
 	
 	
 
@@ -91,20 +85,20 @@ func _physics_process(delta: float) -> void:
 	
 	#COOLDOWN TEIA
 	if !vaiTeia:
-		cdTimeTeia += delta
-		var t = clamp(cdTimeTeia / cdTeia, 0, 1)
+		Globals.cdTimeTeia += delta
+		var t = clamp(Globals.cdTimeTeia / Globals.cdTeia, 0, 1)
 		visual_cd_teia.scale.y = t
 	else:
-			cdTimeTeia = 0
+			Globals.cdTimeTeia = 0
 			visual_cd_teia.scale.y = 1
 	
 	#COOLDOWN CASULO
 	if !comCasulo:
-		cdTimeCasulo += delta
-		var t = clamp(cdTimeCasulo / cdCasulo, 0, 1)
+		Globals.cdTimeCasulo += delta
+		var t = clamp(Globals.cdTimeCasulo / Globals.cdCasulo, 0, 1)
 		visual_cd_casulo.scale.y = t
 	else:
-		cdTimeCasulo = 0
+		Globals.cdTimeCasulo = 0
 		visual_cd_casulo.scale.y = 1
 		
 	if comCasulo and Globals.casulos == 0:
@@ -139,9 +133,9 @@ func _physics_process(delta: float) -> void:
 		input_vector = input_vector.normalized()
 		
 		if is_slow:
-			velocity = input_vector * (speed/2)
+			velocity = input_vector * (Globals.speed/2)
 		else:
-			velocity = input_vector * speed
+			velocity = input_vector * Globals.speed
 			
 		move_and_slide()
 		
@@ -149,13 +143,14 @@ func _physics_process(delta: float) -> void:
 		
 		if input_vector.length() > 0.1:
 			var direction = input_vector.angle()
-			rotation = lerp_angle(rotation, direction, speedRotation * delta)
+			rotation = lerp_angle(rotation, direction, Globals.speedRotation * delta)
 			
 	#ADICIONANDO ANIMAÇAO
 			if anim_sprite.animation != "Runinng":
 				anim_sprite.play("Runinng")
 		else:
-			anim_sprite.play("idle")
+			if foraDaCasinha:
+				anim_sprite.play("idle")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://v1xnkuab6ehk"]
+
+[ext_resource type="Script" uid="uid://bknm182qciy3v" path="res://Scripts/item_1.gd" id="1_c421s"]
+
+[node name="Item1" type="Button"]
+self_modulate = Color(0.738367, 0.000416812, 0.738362, 1)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+icon_alignment = 1
+script = ExtResource("1_c421s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "Item1"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

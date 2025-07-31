@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b68ehgdsfwtgo"]
+
+[ext_resource type="Script" uid="uid://bfv36ffi1onry" path="res://shop.gd" id="1_4qr4x"]
+[ext_resource type="PackedScene" uid="uid://v1xnkuab6ehk" path="res://Shopping/PowerUps/item_1.tscn" id="2_ajnks"]
+[ext_resource type="PackedScene" uid="uid://bwsx65a841rx2" path="res://Shopping/shop_slot.tscn" id="2_u7vg8"]
+[ext_resource type="PackedScene" uid="uid://c1w7grxmr0sbe" path="res://Shopping/PowerUps/item_2.tscn" id="3_fhysv"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qr4x")
+itens = Array[PackedScene]([ExtResource("2_ajnks"), ExtResource("2_ajnks"), ExtResource("3_fhysv"), ExtResource("3_fhysv")])
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -270.0
+offset_right = 270.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="ShopSlot1" parent="GridContainer" instance=ExtResource("2_u7vg8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ShopSlot2" parent="GridContainer" instance=ExtResource("2_u7vg8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ShopSlot3" parent="GridContainer" instance=ExtResource("2_u7vg8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ShopSlot4" parent="GridContainer" instance=ExtResource("2_u7vg8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
