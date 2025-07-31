@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const sceneTeia = preload("res://Scene/teia.tscn")
+const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var cam: Camera2D = $"../Camera2D"
 
 var speedRotation : float = 5

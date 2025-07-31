@@ -1,11 +1,20 @@
 extends Area2D
 
-var speed : float = 400
+var maxSpeed : float = 200
+var speed : float
+var deceleration : float = 150
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	speed = maxSpeed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2.RIGHT.rotated(rotation) * speed * delta
+	if speed > 0:
+		position.y += 20 * delta
+		position += Vector2.RIGHT.rotated(rotation) * speed * delta
+		speed = max(speed - deceleration * delta, 0)
+	else:
+		deterioramento()
+func deterioramento():
+	await get_tree().create_timer(1).timeout
+	queue_free()

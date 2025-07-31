@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dputv2macqr3c"]
 
-[ext_resource type="Script" uid="uid://drahmlptu3ae1" path="res://Scripts/teia.gd" id="1_l8xuf"]
+[ext_resource type="Script" uid="uid://drahmlptu3ae1" path="res://Scripts/teia.gd" id="1_ca0mp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_uwx0s"]
 
@@ -8,7 +8,7 @@
 radius = 3.0
 
 [node name="Teia" type="Area2D"]
-script = ExtResource("1_l8xuf")
+script = ExtResource("1_ca0mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
