@@ -1,22 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba7pexo1carbn"]
+[gd_scene load_steps=9 format=3 uid="uid://ba7pexo1carbn"]
 
 [ext_resource type="Script" uid="uid://wf214k62v1fj" path="res://Scripts/berries.gd" id="1_2l4wn"]
+[ext_resource type="Texture2D" uid="uid://tk5x420aj2rb" path="res://Frames/acerola.png" id="2_cxaty"]
+[ext_resource type="Texture2D" uid="uid://cqc7wc0r7i36t" path="res://Frames/amora.png" id="3_mfij1"]
+[ext_resource type="Texture2D" uid="uid://ot8cjvpdg3jo" path="res://Frames/framboesa.png" id="4_5xhdt"]
+[ext_resource type="Texture2D" uid="uid://dnon73ox6x53l" path="res://Frames/mirtilo.png" id="5_is2ny"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gts2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2l4wn"]
 radius = 16.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdv4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cxaty")
+}],
+"loop": true,
+"name": &"acerola",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mfij1")
+}],
+"loop": true,
+"name": &"amora",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5xhdt")
+}],
+"loop": true,
+"name": &"framboesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_is2ny")
+}],
+"loop": true,
+"name": &"mirtilo",
+"speed": 5.0
+}]
+
 [node name="Berries" type="Area2D"]
 script = ExtResource("1_2l4wn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(32, 32)
 texture = SubResource("CanvasTexture_gts2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2l4wn")
 debug_color = Color(0.841874, 0.381685, 5.77569e-07, 0.42)
+
+[node name="anim_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jdv4b")
+animation = &"mirtilo"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

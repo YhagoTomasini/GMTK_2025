@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dputv2macqr3c"]
 
 [ext_resource type="Script" uid="uid://drahmlptu3ae1" path="res://Scripts/teia.gd" id="1_ca0mp"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_uwx0s"]
+[ext_resource type="Texture2D" uid="uid://bijn8doner6b1" path="res://Frames/teia.png" id="2_qkt0h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8xuf"]
 radius = 3.0
@@ -16,9 +15,10 @@ radial_accel_max = -2.23517e-06
 script = ExtResource("1_ca0mp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(4, 4)
-texture = SubResource("CanvasTexture_uwx0s")
+position = Vector2(6, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qkt0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l8xuf")
