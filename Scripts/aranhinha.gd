@@ -16,7 +16,7 @@ var shop : bool
 var vaiTeia : bool
 var comCasulo : bool
 var foraDaCasinha : bool
-
+var teiaReturn : bool
 
 #SLOW
 var is_slow : bool = false
@@ -24,6 +24,7 @@ var nChiclete : int
 
 
 func _ready() -> void:
+	Globals.casulos = Globals.casulosEstoque
 	text_casulos.text = str(Globals.casulos)
 	
 	nChiclete = 0
@@ -42,11 +43,14 @@ func podeTeia():
 
 func cuspir():
 	podeTeia()
+	teiaReturn = false
 	var projetil = sceneTeia.instantiate()
 	projetil.aranha = $"."
 	get_parent().add_child(projetil)
 	projetil.global_rotation = rotation
 	projetil.global_position = position + Vector2.RIGHT.rotated(rotation) * 16
+	await get_tree().create_timer(0.2).timeout
+	teiaReturn = true
 
 func generateCasulo():
 	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
@@ -73,15 +77,12 @@ func casulo():
 	sprite_2d.modulate = Color(1, 1, 1, 1)
 	
 	
-	
-
 func _physics_process(delta: float) -> void:
 	#Movimentacao da CAMERA
 	#if position.y <= cam.position.y:
 	cam.position.y = position.y
 	
 	text_berries.text = str(Globals.berries)
-	
 	
 	#COOLDOWN TEIA
 	if !vaiTeia:
@@ -113,8 +114,6 @@ func _physics_process(delta: float) -> void:
 			cuspir()
 		
 	#CASULO
-	
-		
 		if comCasulo and Input.is_action_just_pressed("ui_cancel") and Globals.casulos >= 1:
 			casulo()
 	
@@ -146,7 +145,7 @@ func _physics_process(delta: float) -> void:
 			rotation = lerp_angle(rotation, direction, Globals.speedRotation * delta)
 			
 	#ADICIONANDO ANIMAÇAO
-			if anim_sprite.animation != "Runinng":
+			if anim_sprite.animation != "Runinng" and foraDaCasinha:
 				anim_sprite.play("Runinng")
 		else:
 			if foraDaCasinha:
@@ -161,5 +160,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		shop = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "Teia":
+	if area.name == "Teia" and teiaReturn:
 		area.queue_free()

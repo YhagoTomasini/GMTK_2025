@@ -9,5 +9,5 @@ var cdTeia : float = 3
 var cdTimeTeia : float = 0
 var cdCasulo : float = 10
 var cdTimeCasulo : float = 0
-var casulo : int
+var casulos : int
 var speed = 80.0
