@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0571hrfaj6a"]
+
+[ext_resource type="Script" uid="uid://cvkkitctaxxdp" path="res://Prefarbs/limpador.gd" id="1_27r22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gd2q"]
+size = Vector2(640, 20)
+
+[node name="limpador" type="Area2D"]
+script = ExtResource("1_27r22")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3gd2q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
