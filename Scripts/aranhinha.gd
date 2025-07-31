@@ -5,10 +5,12 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collisionArana: CollisionShape2D = $CollisionArana
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
+@onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
 
 
 var speedRotation : float = 5
 var cdTeia : float = 3
+var cdTime : float = 0
 var speed = 160.0
 
 #BOOLEANAS
@@ -25,7 +27,9 @@ func _ready() -> void:
 
 func podeTeia():
 	vaiTeia = false
+	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
 	await get_tree().create_timer(cdTeia).timeout
+	visual_cd_teia.modulate = Color(0.5, 1, 0.5, 0.5)
 	vaiTeia = true
 
 func cuspir():
@@ -52,10 +56,20 @@ func _physics_process(delta: float) -> void:
 	#if position.y <= cam.position.y:
 	cam.position.y = position.y
 	
+	#COOLDOWN TEIA
+	if !vaiTeia:
+		cdTime += delta
+		var t = clamp(cdTime / cdTeia, 0, 1)
+		visual_cd_teia.scale.y = t
+	else:
+		cdTime = 0
+		visual_cd_teia.scale.y = 1
+		
 	if foraDaCasinha:
 	#TEIA
 		if vaiTeia and Input.is_action_just_pressed("ui_accept") and !shop:
 			cuspir()
+			
 		
 		if podeCasulo and Input.is_action_just_pressed("ui_cancel"):
 			casulo()

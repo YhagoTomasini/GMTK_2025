@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtjapk66jjkle"]
 
-[ext_resource type="Script" path="res://Scripts/buraco.gd" id="1_u08ua"]
+[ext_resource type="Script" uid="uid://cx1mq0vvcd2jo" path="res://Scripts/buraco.gd" id="1_u08ua"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_uy5tn"]
 
