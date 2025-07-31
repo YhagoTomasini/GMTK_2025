@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4r63ua24jq2y"]
+[gd_scene load_steps=4 format=3 uid="uid://4r63ua24jq2y"]
 
 [ext_resource type="FontFile" uid="uid://dwuka0482ilys" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_cqt20"]
+[ext_resource type="Script" uid="uid://dmaagfxwhl7n1" path="res://Scene/tile_screen.gd" id="1_nobhe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqt20"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nobhe")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -30,7 +33,7 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -50,3 +53,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_cqt20")
 [node name="Quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_btn" to="." method="_on_quit_btn_pressed"]
