@@ -28,11 +28,14 @@ var foraDaCasinha : bool
 
 #SLOW
 var is_slow : bool = false
+var nChiclete : int 
 
 
 func _ready() -> void:
 	Globals.casulos = casulos
 	text_casulos.text = str(Globals.casulos)
+	
+	nChiclete = 0
 	
 	shop = false
 	vaiTeia = true
@@ -132,6 +135,7 @@ func _physics_process(delta: float) -> void:
 			
 		
 		input_vector = input_vector.normalized()
+		
 		if is_slow:
 			velocity = input_vector * (speed/2)
 		else:
@@ -144,6 +148,7 @@ func _physics_process(delta: float) -> void:
 		if input_vector.length() > 0.1:
 			var direction = input_vector.angle()
 			rotation = lerp_angle(rotation, direction, speedRotation * delta)
+			
 	#ADICIONANDO ANIMAÇAO
 			if anim_sprite.animation != "Runinng":
 				anim_sprite.play("Runinng")

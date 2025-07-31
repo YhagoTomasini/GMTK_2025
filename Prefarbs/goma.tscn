@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwnp33hfqg3qq"]
+
+[ext_resource type="Script" uid="uid://culpd7klcgbma" path="res://Scripts/goma.gd" id="1_6qfih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xcnr"]
+size = Vector2(32.1299, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ow1sv"]
+
+[node name="Goma" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_6qfih")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0649414, 0)
+shape = SubResource("RectangleShape2D_1xcnr")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.435294, 0.717647, 1)
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_ow1sv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

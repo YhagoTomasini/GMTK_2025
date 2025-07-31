@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=22 format=4 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 [ext_resource type="Texture2D" uid="uid://dqlbnfu7mdxee" path="res://Frames/ratao.png" id="2_2wwxx"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjapk66jjkle" path="res://Prefarbs/buraco.tscn" id="3_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://diipf0ahhj4yh" path="res://Prefarbs/TesteDeChuva.tscn" id="5_3amdw"]
 [ext_resource type="Texture2D" uid="uid://cq4jpaqsaminu" path="res://icon.svg" id="6_1xcnr"]
-[ext_resource type="Script" uid="uid://culpd7klcgbma" path="res://Scripts/goma.gd" id="7_ow1sv"]
+[ext_resource type="PackedScene" uid="uid://cwnp33hfqg3qq" path="res://Prefarbs/goma.tscn" id="6_ow1sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r34rm"]
 size = Vector2(876, 48)
@@ -81,11 +81,6 @@ scenes/2/scene = ExtResource("3_2wwxx")
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_3amdw")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xcnr"]
-size = Vector2(32.1299, 32)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ow1sv"]
-
 [node name="main" type="Node2D"]
 
 [node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
@@ -149,6 +144,13 @@ tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAQAVABEAAAAAAAAAAgAXAA8AAAAAAAA
 tile_set = SubResource("TileSet_1xcnr")
 rendering_quadrant_size = 32
 
+[node name="Goma" parent="." instance=ExtResource("6_ow1sv")]
+position = Vector2(364, 292)
+
+[node name="Goma" parent="Goma" instance=ExtResource("6_ow1sv")]
+position = Vector2(0, -32)
+scale = Vector2(1, 1)
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="HUD"]
@@ -187,37 +189,21 @@ offset_right = 1234.0
 offset_bottom = 259.0
 text = "0"
 
-[node name="Goma" type="Area2D" parent="."]
-position = Vector2(417, 294)
-scale = Vector2(4, 4)
-script = ExtResource("7_ow1sv")
-
-[node name="collision" type="CollisionShape2D" parent="Goma"]
-position = Vector2(-0.0649414, 0)
-shape = SubResource("RectangleShape2D_1xcnr")
-
-[node name="sprite" type="Sprite2D" parent="Goma"]
-modulate = Color(1, 0.435294, 0.717647, 1)
-scale = Vector2(32, 32)
-texture = SubResource("CanvasTexture_ow1sv")
-
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_area_entered"]
 [connection signal="body_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77637" to="TileMap/Layer1/@Area2D@77637" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77637" to="TileMap/Layer1/@Area2D@77637" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77638" to="TileMap/Layer1/@Area2D@77638" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77638" to="TileMap/Layer1/@Area2D@77638" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77639" to="TileMap/Layer1/@Area2D@77639" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77639" to="TileMap/Layer1/@Area2D@77639" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77640" to="TileMap/Layer1/@Area2D@77640" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77640" to="TileMap/Layer1/@Area2D@77640" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77641" to="TileMap/Layer1/@Area2D@77641" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77641" to="TileMap/Layer1/@Area2D@77641" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77642" to="TileMap/Layer1/@Area2D@77642" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77642" to="TileMap/Layer1/@Area2D@77642" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@77643" to="TileMap/Layer1/@Area2D@77643" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@77643" to="TileMap/Layer1/@Area2D@77643" method="_on_body_entered"]
-[connection signal="body_entered" from="Goma" to="Goma" method="_on_body_entered"]
-[connection signal="body_exited" from="Goma" to="Goma" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37766" to="TileMap/Layer1/@Area2D@37766" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37766" to="TileMap/Layer1/@Area2D@37766" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37767" to="TileMap/Layer1/@Area2D@37767" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37767" to="TileMap/Layer1/@Area2D@37767" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37768" to="TileMap/Layer1/@Area2D@37768" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37768" to="TileMap/Layer1/@Area2D@37768" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37769" to="TileMap/Layer1/@Area2D@37769" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37769" to="TileMap/Layer1/@Area2D@37769" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37770" to="TileMap/Layer1/@Area2D@37770" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37770" to="TileMap/Layer1/@Area2D@37770" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37771" to="TileMap/Layer1/@Area2D@37771" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37771" to="TileMap/Layer1/@Area2D@37771" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@37772" to="TileMap/Layer1/@Area2D@37772" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@37772" to="TileMap/Layer1/@Area2D@37772" method="_on_body_entered"]
