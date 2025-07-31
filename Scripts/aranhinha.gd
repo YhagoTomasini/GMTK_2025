@@ -25,6 +25,11 @@ var vaiTeia : bool
 var comCasulo : bool
 var foraDaCasinha : bool
 
+
+#SLOW
+var is_slow : bool = false
+
+
 func _ready() -> void:
 	Globals.casulos = casulos
 	text_casulos.text = str(Globals.casulos)
@@ -125,9 +130,13 @@ func _physics_process(delta: float) -> void:
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 			
-		input_vector = input_vector.normalized()
 		
-		velocity = input_vector * speed
+		input_vector = input_vector.normalized()
+		if is_slow:
+			velocity = input_vector * (speed/2)
+		else:
+			velocity = input_vector * speed
+			
 		move_and_slide()
 		
 	

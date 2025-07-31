@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=24 format=4 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 [ext_resource type="Texture2D" uid="uid://dqlbnfu7mdxee" path="res://Frames/ratao.png" id="2_2wwxx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjapk66jjkle" path="res://Prefarbs/buraco.tscn" id="3_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://diipf0ahhj4yh" path="res://Prefarbs/TesteDeChuva.tscn" id="5_3amdw"]
 [ext_resource type="Texture2D" uid="uid://cq4jpaqsaminu" path="res://icon.svg" id="6_1xcnr"]
+[ext_resource type="Script" uid="uid://culpd7klcgbma" path="res://Scripts/goma.gd" id="7_ow1sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r34rm"]
 size = Vector2(876, 48)
@@ -80,9 +81,15 @@ scenes/2/scene = ExtResource("3_2wwxx")
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_3amdw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xcnr"]
+size = Vector2(32.1299, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ow1sv"]
+
 [node name="main" type="Node2D"]
 
 [node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
+z_index = 1
 position = Vector2(640, 636)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -180,21 +187,37 @@ offset_right = 1234.0
 offset_bottom = 259.0
 text = "0"
 
+[node name="Goma" type="Area2D" parent="."]
+position = Vector2(417, 294)
+scale = Vector2(4, 4)
+script = ExtResource("7_ow1sv")
+
+[node name="collision" type="CollisionShape2D" parent="Goma"]
+position = Vector2(-0.0649414, 0)
+shape = SubResource("RectangleShape2D_1xcnr")
+
+[node name="sprite" type="Sprite2D" parent="Goma"]
+modulate = Color(1, 0.435294, 0.717647, 1)
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_ow1sv")
+
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_area_entered"]
 [connection signal="body_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31282" to="TileMap/Layer1/@Area2D@31282" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31282" to="TileMap/Layer1/@Area2D@31282" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31283" to="TileMap/Layer1/@Area2D@31283" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31283" to="TileMap/Layer1/@Area2D@31283" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31284" to="TileMap/Layer1/@Area2D@31284" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31284" to="TileMap/Layer1/@Area2D@31284" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31285" to="TileMap/Layer1/@Area2D@31285" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31285" to="TileMap/Layer1/@Area2D@31285" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31286" to="TileMap/Layer1/@Area2D@31286" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31286" to="TileMap/Layer1/@Area2D@31286" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31287" to="TileMap/Layer1/@Area2D@31287" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31287" to="TileMap/Layer1/@Area2D@31287" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMap/Layer1/@Area2D@31288" to="TileMap/Layer1/@Area2D@31288" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMap/Layer1/@Area2D@31288" to="TileMap/Layer1/@Area2D@31288" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46868" to="TileMap/Layer1/@Area2D@46868" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46868" to="TileMap/Layer1/@Area2D@46868" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46869" to="TileMap/Layer1/@Area2D@46869" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46869" to="TileMap/Layer1/@Area2D@46869" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46870" to="TileMap/Layer1/@Area2D@46870" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46870" to="TileMap/Layer1/@Area2D@46870" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46871" to="TileMap/Layer1/@Area2D@46871" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46871" to="TileMap/Layer1/@Area2D@46871" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46872" to="TileMap/Layer1/@Area2D@46872" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46872" to="TileMap/Layer1/@Area2D@46872" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46873" to="TileMap/Layer1/@Area2D@46873" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46873" to="TileMap/Layer1/@Area2D@46873" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@46874" to="TileMap/Layer1/@Area2D@46874" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@46874" to="TileMap/Layer1/@Area2D@46874" method="_on_body_entered"]
+[connection signal="body_entered" from="Goma" to="Goma" method="_on_body_entered"]
+[connection signal="body_exited" from="Goma" to="Goma" method="_on_body_exited"]
