@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=11 format=4 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 [ext_resource type="PackedScene" uid="uid://ba7pexo1carbn" path="res://Prefarbs/berries.tscn" id="2_r34rm"]
@@ -73,7 +73,12 @@ debug_color = Color(1, 0.6, 0.701961, 0.419608)
 tile_set = SubResource("TileSet_1xcnr")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 65536, 65537, 0, 65536, 983059, 0, 65536, 1114133, 0, 131072)
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAQAVABEAAAAAAAAAAgAXAA8AAAAAAAAAAQAVAA0AAAAAAAAAAQARAAsAAAAAAAAAAQAXAAgAAAAAAAAAAQASAAcAAAAAAAAAAQAVAAYAAAAAAAAAAQAPAAwAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_1xcnr")
+rendering_quadrant_size = 32
 
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]

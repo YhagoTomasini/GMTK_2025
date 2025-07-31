@@ -3,6 +3,9 @@ extends CharacterBody2D
 const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var cam: Camera2D = $"../Camera2D"
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
 var speedRotation : float = 5
 
 var cdTeia : float = 3
@@ -24,9 +27,10 @@ func podeTeia():
 func cuspir():
 	podeTeia()
 	var projetil = sceneTeia.instantiate()
+	projetil.aranha = $"."
 	get_parent().add_child(projetil)
-	projetil.position = position
-	projetil.rotation = rotation
+	projetil.global_rotation = rotation
+	projetil.global_position = position + Vector2.RIGHT.rotated(rotation) * 16
 
 func _physics_process(delta: float) -> void:
 	#Movimentacao da CAMERA
@@ -64,3 +68,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = false
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Teia":
+		area.queue_free()
