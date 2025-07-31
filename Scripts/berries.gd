@@ -8,6 +8,12 @@ var posiTeia : Area2D
 var escolha_da_frutinha : int 
 
 func _ready() -> void:
+	var rot = randi_range(0,1)
+	if rot == 0:
+		pass
+	elif  rot == 1:
+		anim_sprite.scale.x *= -1
+	
 	escolha_da_frutinha = randi_range(1,4)
 	if escolha_da_frutinha == 1:
 		anim_sprite.play("acerola")
