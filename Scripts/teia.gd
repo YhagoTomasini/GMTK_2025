@@ -1,8 +1,8 @@
 extends Area2D
 
-var maxSpeed : float = 200
+var maxSpeed : float = 300
 var speed : float
-var deceleration : float = 150
+var deceleration : float = 180
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	speed = maxSpeed

@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=11 format=3 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://ba7pexo1carbn" path="res://Prefarbs/berries.tscn" id="2_r34rm"]
+[ext_resource type="PackedScene" uid="uid://dtjapk66jjkle" path="res://Prefarbs/buraco.tscn" id="3_2wwxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r34rm"]
 size = Vector2(876, 48)
@@ -16,6 +18,14 @@ radius = 430.094
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6udf"]
 radius = 503.954
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3amdw"]
+scenes/1/scene = ExtResource("2_r34rm")
+scenes/2/scene = ExtResource("3_2wwxx")
+
+[sub_resource type="TileSet" id="TileSet_1xcnr"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_3amdw")
 
 [node name="main" type="Node2D"]
 
@@ -58,6 +68,12 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 position = Vector2(4, 665)
 shape = SubResource("CircleShape2D_f6udf")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1xcnr")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 65536, 65537, 0, 65536, 983059, 0, 65536, 1114133, 0, 131072)
 
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]

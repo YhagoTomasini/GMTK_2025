@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba7pexo1carbn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gts2d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2l4wn"]
+radius = 16.0
+
+[node name="Berries" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_gts2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2l4wn")
+debug_color = Color(0.841874, 0.381685, 5.77569e-07, 0.42)

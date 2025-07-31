@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtjapk66jjkle"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uy5tn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c622"]
+size = Vector2(32, 32)
+
+[node name="Buraco" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_uy5tn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8c622")
+debug_color = Color(0, 0, 0, 0.42)
