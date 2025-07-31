@@ -1,20 +1,17 @@
-extends Node2D
+extends StaticBody2D
 
-@onready var collision: StaticBody2D = $StaticBody2D
-
-@onready var sprite_teia_path: Sprite2D = $SpriteTeiaPath
-
-
+const TEIA_PATH = preload("res://Prefarbs/teia_path.tscn")
 
 func _ready() -> void:
-	sprite_teia_path.visible = false
-
-func _process(delta: float) -> void:
 	pass
-
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
-		collision.queue_free()
-		sprite_teia_path.visible = true
+		area.queue_free()
+		
+		var teia_path = TEIA_PATH.instantiate()
+		get_parent().add_child(teia_path)
+		teia_path.position = position
+		
+		await get_tree().create_timer(0.1).timeout
+		queue_free()
 		

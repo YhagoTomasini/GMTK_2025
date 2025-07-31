@@ -80,5 +80,11 @@ tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAQAVABEAAAAAAAAAAgAXAA8AAAAAAAA
 tile_set = SubResource("TileSet_1xcnr")
 rendering_quadrant_size = 32
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]
