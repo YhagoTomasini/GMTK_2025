@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvkkitctaxxdp" path="res://Scripts/limpador.gd" id="1_27r22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gd2q"]
-size = Vector2(640, 20)
+size = Vector2(640, 10)
 
 [node name="limpador" type="Area2D"]
 script = ExtResource("1_27r22")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4r63ua24jq2y"]
 
 [ext_resource type="FontFile" uid="uid://dwuka0482ilys" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_cqt20"]
-[ext_resource type="Script" path="res://Scene/tile_screen.gd" id="1_nobhe"]
+[ext_resource type="Script" uid="uid://dmaagfxwhl7n1" path="res://Scene/tile_screen.gd" id="1_nobhe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqt20"]
 
@@ -34,6 +34,7 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

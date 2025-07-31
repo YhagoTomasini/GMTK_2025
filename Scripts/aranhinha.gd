@@ -71,11 +71,13 @@ func casulo():
 	foraDaCasinha = false
 	collisionArana.disabled = true
 	sprite_2d.modulate = Color(0, 0, 0, 1)
+	anim_sprite.play("Casulo")
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(4).timeout
 	foraDaCasinha = true
 	collisionArana.disabled = false
 	sprite_2d.modulate = Color(1, 1, 1, 1)
+	anim_sprite.play("Descasulo")
 	
 	
 
