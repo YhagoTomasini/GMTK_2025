@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=20 format=4 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
+[ext_resource type="Texture2D" uid="uid://dqlbnfu7mdxee" path="res://Frames/ratao.png" id="2_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://ba7pexo1carbn" path="res://Prefarbs/berries.tscn" id="2_r34rm"]
 [ext_resource type="PackedScene" uid="uid://dtjapk66jjkle" path="res://Prefarbs/buraco.tscn" id="3_2wwxx"]
+[ext_resource type="PackedScene" uid="uid://diipf0ahhj4yh" path="res://Prefarbs/TesteDeChuva.tscn" id="5_3amdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r34rm"]
 size = Vector2(876, 48)
@@ -14,10 +16,60 @@ size = Vector2(328, 716)
 size = Vector2(1280, 49)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2wwxx"]
-radius = 430.094
+radius = 440.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6udf"]
 radius = 503.954
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3amdw"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xcnr"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow1sv"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75buv"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2iwn"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pt4j"]
+atlas = ExtResource("2_2wwxx")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7y4ci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3amdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xcnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow1sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75buv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2iwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pt4j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3amdw"]
 scenes/1/scene = ExtResource("2_r34rm")
@@ -43,21 +95,24 @@ visible = false
 position = Vector2(0, 204)
 shape = SubResource("RectangleShape2D_r34rm")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TesteDeChuva" parent="Camera2D" instance=ExtResource("5_3amdw")]
+position = Vector2(0, -180)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="barreiras_invisiveis" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="barreiras_invisiveis"]
 position = Vector2(1117, 360)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="barreiras_invisiveis"]
 position = Vector2(165, 361)
 shape = SubResource("RectangleShape2D_sblpm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barreiras_invisiveis"]
 position = Vector2(641, 694.5)
 shape = SubResource("RectangleShape2D_f6udf")
 
-[node name="CollisionLoja" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionLoja" type="CollisionShape2D" parent="barreiras_invisiveis"]
 position = Vector2(8, 671)
 shape = SubResource("CircleShape2D_2wwxx")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
@@ -68,6 +123,12 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 position = Vector2(4, 665)
 shape = SubResource("CircleShape2D_f6udf")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lolja"]
+position = Vector2(367, 618)
+sprite_frames = SubResource("SpriteFrames_7y4ci")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1xcnr")
@@ -80,11 +141,31 @@ tile_map_data = PackedByteArray("AAATAA8AAAAAAAAAAQAVABEAAAAAAAAAAgAXAA8AAAAAAAA
 tile_set = SubResource("TileSet_1xcnr")
 rendering_quadrant_size = 32
 
-[node name="Control" type="Control" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/Berries" to="TileMap/Layer1/Berries" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189578" to="TileMap/Layer1/@Area2D@189578" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189578" to="TileMap/Layer1/@Area2D@189578" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189579" to="TileMap/Layer1/@Area2D@189579" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189579" to="TileMap/Layer1/@Area2D@189579" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189580" to="TileMap/Layer1/@Area2D@189580" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189580" to="TileMap/Layer1/@Area2D@189580" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189581" to="TileMap/Layer1/@Area2D@189581" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189581" to="TileMap/Layer1/@Area2D@189581" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189582" to="TileMap/Layer1/@Area2D@189582" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189582" to="TileMap/Layer1/@Area2D@189582" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189583" to="TileMap/Layer1/@Area2D@189583" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189583" to="TileMap/Layer1/@Area2D@189583" method="_on_body_entered"]
+[connection signal="area_entered" from="TileMap/Layer1/@Area2D@189584" to="TileMap/Layer1/@Area2D@189584" method="_on_area_entered"]
+[connection signal="body_entered" from="TileMap/Layer1/@Area2D@189584" to="TileMap/Layer1/@Area2D@189584" method="_on_body_entered"]

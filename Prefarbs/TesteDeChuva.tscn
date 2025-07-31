@@ -30,6 +30,7 @@ curve_z = SubResource("Curve_84tk4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cokcd"]
 particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
 emission_shape = 3
 emission_box_extents = Vector3(300, 1, 1)
 gravity = Vector3(0, 5000, 0)
@@ -136,11 +137,10 @@ script = ExtResource("1_3gd2q")
 
 [node name="chuva" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 200
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_cokcd")
 
 [node name="spwan_rain" type="Marker2D" parent="."]
-position = Vector2(0, -95)
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -149,11 +149,10 @@ libraries = {
 autoplay = "ficando_normal"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
+wait_time = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="bg" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

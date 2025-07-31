@@ -4,6 +4,7 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var cam: Camera2D = $"../Camera2D"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collisionArana: CollisionShape2D = $CollisionArana
+@onready var anim_sprite: AnimatedSprite2D = $animSprite
 
 
 var speedRotation : float = 5
@@ -75,9 +76,16 @@ func _physics_process(delta: float) -> void:
 		velocity = input_vector * speed
 		move_and_slide()
 		
+	
+		
 		if input_vector.length() > 0.1:
 			var direction = input_vector.angle()
 			rotation = lerp_angle(rotation, direction, speedRotation * delta)
+#ADICIONANDO ANIMAÇAO
+			if anim_sprite.animation != "Runinng":
+				anim_sprite.play("Runinng")
+		else:
+			anim_sprite.play("idle")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":

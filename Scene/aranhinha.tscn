@@ -1,11 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfo5k8xf7psfo"]
+[gd_scene load_steps=12 format=3 uid="uid://bfo5k8xf7psfo"]
 
 [ext_resource type="Script" uid="uid://dtdr3n4ewq4oe" path="res://Scripts/aranhinha.gd" id="1_yfdyg"]
+[ext_resource type="Texture2D" uid="uid://dnyx8dh8l5smr" path="res://Frames/robertinhe-Sheet.png" id="2_yfdyg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_r1b3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sblpm"]
 radius = 16.1245
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hblxq"]
+atlas = ExtResource("2_yfdyg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqmgx"]
+atlas = ExtResource("2_yfdyg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65vl5"]
+atlas = ExtResource("2_yfdyg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2447k"]
+atlas = ExtResource("2_yfdyg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfdyg"]
+atlas = ExtResource("2_yfdyg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1b3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hblxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqmgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65vl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2447k")
+}],
+"loop": true,
+"name": &"Runinng",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfdyg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1b3v"]
 radius = 12.0
@@ -14,11 +63,18 @@ radius = 12.0
 script = ExtResource("1_yfdyg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(32, 32)
 texture = SubResource("CanvasTexture_r1b3v")
 
 [node name="CollisionArana" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sblpm")
+
+[node name="animSprite" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_r1b3v")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 
