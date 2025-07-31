@@ -17,10 +17,10 @@ func _ready() -> void:
 		anim_sprite.play("framboesa")
 	elif escolha_da_frutinha == 4:
 		anim_sprite.play("mirtilo")
+		
 func _physics_process(delta: float) -> void:
 	if capturado:
 		position = posiTeia.global_position
-
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
