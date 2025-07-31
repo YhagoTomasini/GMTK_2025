@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ba7pexo1carbn"]
 
-[ext_resource type="Script" uid="uid://wf214k62v1fj" path="res://Scripts/berries.gd" id="1_2l4wn"]
+[ext_resource type="Script" path="res://Scripts/berries.gd" id="1_2l4wn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gts2d"]
 
