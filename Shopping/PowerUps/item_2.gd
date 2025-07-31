@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 
 func _on_button_down() -> void:
 	if Globals.berries >= custo:
-		Globals.speed += Globals.speed*0.1
+		Globals.casulosEstoque += 1
