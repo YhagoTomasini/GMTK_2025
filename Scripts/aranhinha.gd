@@ -6,23 +6,32 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var collisionArana: CollisionShape2D = $CollisionArana
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
 @onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
+@onready var text_berries: Label = $"../HUD/Control/TextBerries"
+@onready var text_casulos: Label = $"../HUD/Control/TextCasulos"
+@onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
 
-
+#VARAVEIS
 var speedRotation : float = 5
 var cdTeia : float = 3
-var cdTime : float = 0
+var cdTimeTeia : float = 0
+var cdCasulo : float = 10
+var cdTimeCasulo : float = 0
+var casulos : int = 3
 var speed = 160.0
 
 #BOOLEANAS
 var shop : bool
 var vaiTeia : bool
-var podeCasulo : bool
+var comCasulo : bool
 var foraDaCasinha : bool
 
 func _ready() -> void:
+	Globals.casulos = casulos
+	text_casulos.text = str(Globals.casulos)
+	
 	shop = false
 	vaiTeia = true
-	podeCasulo = true
+	comCasulo = true
 	foraDaCasinha = true
 
 func podeTeia():
@@ -40,15 +49,26 @@ func cuspir():
 	projetil.global_rotation = rotation
 	projetil.global_position = position + Vector2.RIGHT.rotated(rotation) * 16
 
+func generateCasulo():
+	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
+	await get_tree().create_timer(cdCasulo).timeout
+	visual_cd_casulo.modulate = Color(0.5, 1, 0.5, 0.5)
+	Globals.casulos += 1
+	text_casulos.text = str(Globals.casulos)
+	comCasulo = true
+
 func casulo():
+	Globals.casulos -= 1
+	text_casulos.text = str(Globals.casulos)
 	foraDaCasinha = false
 	collisionArana.disabled = true
-	sprite_2d.modulate = Color(0, 0, 0, 255)
+	sprite_2d.modulate = Color(0, 0, 0, 1)
 	
-	await get_tree().create_timer(5).timeout
-	collisionArana.disabled	= false
+	await get_tree().create_timer(1).timeout
 	foraDaCasinha = true
-	sprite_2d.modulate = Color(255, 255, 255, 255)
+	collisionArana.disabled = false
+	sprite_2d.modulate = Color(1, 1, 1, 1)
+	
 	
 
 func _physics_process(delta: float) -> void:
@@ -56,22 +76,42 @@ func _physics_process(delta: float) -> void:
 	#if position.y <= cam.position.y:
 	cam.position.y = position.y
 	
+	text_berries.text = str(Globals.berries)
+	
+	
 	#COOLDOWN TEIA
 	if !vaiTeia:
-		cdTime += delta
-		var t = clamp(cdTime / cdTeia, 0, 1)
+		cdTimeTeia += delta
+		var t = clamp(cdTimeTeia / cdTeia, 0, 1)
 		visual_cd_teia.scale.y = t
 	else:
-		cdTime = 0
-		visual_cd_teia.scale.y = 1
+			cdTimeTeia = 0
+			visual_cd_teia.scale.y = 1
+	
+	#COOLDOWN CASULO
+	if !comCasulo:
+		cdTimeCasulo += delta
+		var t = clamp(cdTimeCasulo / cdCasulo, 0, 1)
+		visual_cd_casulo.scale.y = t
+	else:
+		cdTimeCasulo = 0
+		visual_cd_casulo.scale.y = 1
 		
+	if comCasulo and Globals.casulos == 0:
+		generateCasulo()
+		comCasulo = false
+		
+	#SE N ESTIVER NO CASULO
 	if foraDaCasinha:
+		
 	#TEIA
 		if vaiTeia and Input.is_action_just_pressed("ui_accept") and !shop:
 			cuspir()
-			
 		
-		if podeCasulo and Input.is_action_just_pressed("ui_cancel"):
+	#CASULO
+	
+		
+		if comCasulo and Input.is_action_just_pressed("ui_cancel") and Globals.casulos >= 1:
 			casulo()
 	
 	#Acesso a LOJA
@@ -95,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		if input_vector.length() > 0.1:
 			var direction = input_vector.angle()
 			rotation = lerp_angle(rotation, direction, speedRotation * delta)
-#ADICIONANDO ANIMAÇAO
+	#ADICIONANDO ANIMAÇAO
 			if anim_sprite.animation != "Runinng":
 				anim_sprite.play("Runinng")
 		else:
@@ -108,7 +148,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = false
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
