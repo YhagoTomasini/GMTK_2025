@@ -12,6 +12,7 @@ script = ExtResource("1_i4gkl")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = -6.0
 offset_top = 32.0
 offset_right = 39.0

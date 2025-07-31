@@ -1,16 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwsx65a841rx2"]
-
-[sub_resource type="GDScript" id="GDScript_0kxcm"]
-script/source = "extends Panel
-
-@onready var item_display: Sprite2D = $ItemDisplay
-
-func _process(delta: float) -> void:
-	pass
-"
+[gd_scene format=3 uid="uid://bwsx65a841rx2"]
 
 [node name="ShopSlot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 32.0
 offset_bottom = 32.0
-script = SubResource("GDScript_0kxcm")

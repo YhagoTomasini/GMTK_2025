@@ -11,3 +11,5 @@ func _process(delta: float) -> void:
 func _on_button_down() -> void:
 	if Globals.berries >= custo:
 		Globals.casulosEstoque += 1
+		await get_tree().create_timer(0.1).timeout
+		queue_free()

@@ -11,4 +11,12 @@ func _ready() -> void:
 		slot.add_child(produto)
 		
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_cancel"):
+		voltarMain()
+
+
+func _on_button_button_down() -> void:
+	voltarMain()
+	
+func voltarMain():
+	get_tree().change_scene_to_file("res://Scene/main.tscn")

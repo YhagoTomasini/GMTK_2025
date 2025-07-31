@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	#Acesso a LOJA
 		if shop:
 			if Input.is_action_just_pressed("ui_accept"):
-				print("Mudar de cena para a lolja")  
+				get_tree().change_scene_to_file("res://Scene/shop.tscn")
 	
 	#MOVIMENTACAO
 		var input_vector = Vector2.ZERO
