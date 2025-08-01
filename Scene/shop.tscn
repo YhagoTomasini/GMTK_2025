@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0a3tltyarvt3" path="res://Shopping/PowerUps/item_3.tscn" id="4_1grnk"]
 [ext_resource type="PackedScene" uid="uid://bnxegwp3ssyfr" path="res://Shopping/PowerUps/item_4.tscn" id="5_yymmd"]
 [ext_resource type="PackedScene" uid="uid://bp2g0pm8i7lh1" path="res://Shopping/PowerUps/item_5.tscn" id="6_vvu0h"]
-[ext_resource type="Texture2D" path="res://Frames/loja_teia.png" id="7_yymmd"]
+[ext_resource type="Texture2D" uid="uid://c2no6ahnfain" path="res://Frames/Pack Rat/loja_teia.png" id="7_yymmd"]
 [ext_resource type="Theme" uid="uid://df36adlkmld5e" path="res://Temas/TemaBotao.tres" id="8_vvu0h"]
 
 [node name="Shop" type="Control"]

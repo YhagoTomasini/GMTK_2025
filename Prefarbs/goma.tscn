@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt4lvkddro1nr"]
 
 [ext_resource type="Script" uid="uid://culpd7klcgbma" path="res://Scripts/goma.gd" id="1_6qfih"]
-[ext_resource type="Texture2D" path="res://Frames/chiclete.png" id="2_6vvrw"]
+[ext_resource type="Texture2D" uid="uid://cnyxk8fflfqws" path="res://Frames/Obstaculos/chiclete.png" id="2_6vvrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xcnr"]
 size = Vector2(32.1299, 32)

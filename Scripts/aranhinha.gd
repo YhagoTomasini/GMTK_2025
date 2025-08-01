@@ -27,6 +27,7 @@ var comCasulo : bool
 var foraDaCasinha : bool
 var teiaReturn : bool
 var inicio : bool
+var aQueda : bool
 
 #SLOW
 var is_slow : bool = false
@@ -47,19 +48,26 @@ func _ready() -> void:
 	comCasulo = true
 	foraDaCasinha = true
 	inicio = true
+	aQueda = false
 	
 	collisionArana.disabled = false
 	collisionArea.disabled = false
 	
 func chuva_a_derrubou():
-	var posicaoAtual = position.y
+	print("CHUVAAAAAAAAAAAAAAAA")
+	var posicaoAtual : float = position.y
 	collisionArana.disabled = true
 	collisionArea.disabled = true
-	
 	foraDaCasinha = false
-	position.y = lerp(posicaoAtual, 636, 10)
 	
-	await get_tree().create_timer(5).timeout
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "position:y", 636.0, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(self, "rotation", rotation + TAU * 2, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	aQueda = true
+	
+	await tween.finished
+	
 	get_tree().reload_current_scene()
 	
 
@@ -113,9 +121,13 @@ func casulo():
 	
 func _physics_process(delta: float) -> void:
 	#Movimentacao da CAMERA
-	if position.y <= cam.position.y:
+	if position.y <= cam.position.y and !aQueda:
 		cam.position.y = position.y
 	
+	if aQueda:
+		cam.position.y = position.y
+	
+	#ATUALIZACAO do TEXTO das BERRIES
 	text_berries.text = str(Globals.berries)
 	
 	#COOLDOWN TEIA

@@ -24,7 +24,8 @@ func chuva_forte():
 	veio_a_chuva.global_position = spwan_rain.global_position
 	await get_tree().create_timer(5).timeout
 	spawn_da_chuva()
-	veio_a_chuva.queue_free()
+	if veio_a_chuva != null:
+		veio_a_chuva.queue_free()
 	chuva.emitting = false
 	anim.play("ficando_normal")
 	

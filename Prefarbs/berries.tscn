@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://ba7pexo1carbn"]
 
 [ext_resource type="Script" uid="uid://wf214k62v1fj" path="res://Scripts/berries.gd" id="1_2l4wn"]
-[ext_resource type="Texture2D" uid="uid://tk5x420aj2rb" path="res://Frames/acerola.png" id="2_cxaty"]
-[ext_resource type="Texture2D" uid="uid://cqc7wc0r7i36t" path="res://Frames/amora.png" id="3_mfij1"]
-[ext_resource type="Texture2D" uid="uid://ot8cjvpdg3jo" path="res://Frames/framboesa.png" id="4_5xhdt"]
-[ext_resource type="Texture2D" uid="uid://dnon73ox6x53l" path="res://Frames/mirtilo.png" id="5_is2ny"]
+[ext_resource type="Texture2D" uid="uid://tk5x420aj2rb" path="res://Frames/Frutas/acerola.png" id="2_cxaty"]
+[ext_resource type="Texture2D" uid="uid://cqc7wc0r7i36t" path="res://Frames/Frutas/amora.png" id="3_mfij1"]
+[ext_resource type="Texture2D" uid="uid://ot8cjvpdg3jo" path="res://Frames/Frutas/framboesa.png" id="4_5xhdt"]
+[ext_resource type="Texture2D" uid="uid://dnon73ox6x53l" path="res://Frames/Frutas/mirtilo.png" id="5_is2ny"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gts2d"]
 
@@ -60,7 +60,7 @@ debug_color = Color(0.841874, 0.381685, 5.77569e-07, 0.42)
 
 [node name="anim_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jdv4b")
-animation = &"mirtilo"
+animation = &"acerola"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
