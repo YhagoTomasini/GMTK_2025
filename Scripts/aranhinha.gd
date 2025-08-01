@@ -6,10 +6,15 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var collisionArana: CollisionShape2D = $CollisionArana
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
 @onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
+@onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
+#TEXTS
 @onready var text_berries: Label = $"../HUD/Control/TextBerries"
 @onready var text_casulos: Label = $"../HUD/Control/TextCasulos"
-@onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
+@onready var text_teias: Label = $"../HUD/Control/TextTeias"
 
+#VARIAVEIS
+var cdTimeTeia : float = 0
+var cdTimeCasulo : float = 0
 
 #BOOLEANAS
 var shop : bool
@@ -27,6 +32,9 @@ func _ready() -> void:
 	Globals.casulos = Globals.casulosEstoque
 	text_casulos.text = str(Globals.casulos)
 	
+	Globals.teias = Globals.teiasEstoque
+	text_teias.text = str(Globals.teias)
+	
 	nChiclete = 0
 	
 	shop = false
@@ -35,25 +43,30 @@ func _ready() -> void:
 	foraDaCasinha = true
 
 func podeTeia():
-	vaiTeia = false
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
+	
 	await get_tree().create_timer(Globals.cdTeia).timeout
 	visual_cd_teia.modulate = Color(0.5, 1, 0.5, 0.5)
+	Globals.teias += 1
+	text_teias.text = str(Globals.teias)
 	vaiTeia = true
 
 func cuspir():
-	podeTeia()
+	Globals.teias -= 1
+	text_teias.text = str(Globals.teias)
 	teiaReturn = false
 	var projetil = sceneTeia.instantiate()
 	projetil.aranha = $"."
 	get_parent().add_child(projetil)
 	projetil.global_rotation = rotation
 	projetil.global_position = position + Vector2.RIGHT.rotated(rotation) * 16
+	
 	await get_tree().create_timer(0.2).timeout
 	teiaReturn = true
 
 func generateCasulo():
 	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
+	
 	await get_tree().create_timer(Globals.cdCasulo).timeout
 	visual_cd_casulo.modulate = Color(0.5, 1, 0.5, 0.5)
 	Globals.casulos += 1
@@ -86,20 +99,24 @@ func _physics_process(delta: float) -> void:
 	
 	#COOLDOWN TEIA
 	if !vaiTeia:
-		Globals.cdTimeTeia += delta
-		var t = clamp(Globals.cdTimeTeia / Globals.cdTeia, 0, 1)
+		cdTimeTeia += delta
+		var t = clamp(cdTimeTeia / Globals.cdTeia, 0, 1)
 		visual_cd_teia.scale.y = t
 	else:
-			Globals.cdTimeTeia = 0
+			cdTimeTeia = 0
 			visual_cd_teia.scale.y = 1
+	
+	if vaiTeia and Globals.teias == 0:
+		podeTeia()
+		vaiTeia = false
 	
 	#COOLDOWN CASULO
 	if !comCasulo:
-		Globals.cdTimeCasulo += delta
-		var t = clamp(Globals.cdTimeCasulo / Globals.cdCasulo, 0, 1)
+		cdTimeCasulo += delta
+		var t = clamp(cdTimeCasulo / Globals.cdCasulo, 0, 1)
 		visual_cd_casulo.scale.y = t
 	else:
-		Globals.cdTimeCasulo = 0
+		cdTimeCasulo = 0
 		visual_cd_casulo.scale.y = 1
 		
 	if comCasulo and Globals.casulos == 0:
@@ -120,7 +137,7 @@ func _physics_process(delta: float) -> void:
 	#Acesso a LOJA
 		if shop:
 			if Input.is_action_just_pressed("ui_accept"):
-				get_tree().change_scene_to_file("res://Scene/shop.tscn")
+				get_tree().call_deferred("change_scene_to_file", "res://Scene/shop.tscn")
 	
 	#MOVIMENTACAO
 		var input_vector = Vector2.ZERO

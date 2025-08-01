@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1w7grxmr0sbe"]
+[gd_scene load_steps=2 format=3 uid="uid://bnxegwp3ssyfr"]
 
-[ext_resource type="Script" uid="uid://knsongnpxhkn" path="res://Scripts/item_2.gd" id="1_i4gkl"]
+[ext_resource type="Script" uid="uid://c6kt385ly1rnj" path="res://Scripts/item_4.gd" id="1_hioey"]
 
-[node name="Item2" type="Button"]
+[node name="Item4" type="Button"]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-script = ExtResource("1_i4gkl")
+script = ExtResource("1_hioey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -17,6 +17,6 @@ offset_left = -6.0
 offset_top = 32.0
 offset_right = 39.0
 offset_bottom = 55.0
-text = "+ Casulos"
+text = "Gera teias + rapido"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -5,27 +5,26 @@ var posiAranha : Vector2
 
 var coletar : bool = false
 
-var maxSpeed : float = 300
 var speed : float
 var deceleration : float = 180
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = maxSpeed
+	speed = Globals.teiaForce
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	posiAranha = aranha.position
 	
 	if !coletar:
 		if speed > 0:
-			position.y += 20 * delta
+			position.y += 25 * delta
 			position += Vector2.RIGHT.rotated(rotation) * speed * delta
 			speed = max(speed - deceleration * delta, 0)
 		else:
 			deterioramento()
 	
 	else:
-		position = lerp(position, posiAranha, 4 * delta)
+		position = lerp(position, posiAranha, (Globals.speed*0.08) * delta)
 		
 		
 func deterioramento():

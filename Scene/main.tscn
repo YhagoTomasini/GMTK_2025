@@ -198,5 +198,12 @@ offset_right = 1234.0
 offset_bottom = 259.0
 text = "0"
 
+[node name="TextTeias" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 1182.0
+offset_top = 87.0
+offset_right = 1222.0
+offset_bottom = 110.0
+
 [connection signal="body_entered" from="Lolja" to="Aranhinha" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Lolja" to="Aranhinha" method="_on_area_2d_body_exited"]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b68ehgdsfwtgo"]
+[gd_scene load_steps=8 format=3 uid="uid://b68ehgdsfwtgo"]
 
 [ext_resource type="Script" uid="uid://bfv36ffi1onry" path="res://shop.gd" id="1_4qr4x"]
 [ext_resource type="PackedScene" uid="uid://v1xnkuab6ehk" path="res://Shopping/PowerUps/item_1.tscn" id="2_ajnks"]
 [ext_resource type="PackedScene" uid="uid://bwsx65a841rx2" path="res://Shopping/shop_slot.tscn" id="2_u7vg8"]
 [ext_resource type="PackedScene" uid="uid://c1w7grxmr0sbe" path="res://Shopping/PowerUps/item_2.tscn" id="3_fhysv"]
+[ext_resource type="PackedScene" uid="uid://0a3tltyarvt3" path="res://Shopping/PowerUps/item_3.tscn" id="4_1grnk"]
+[ext_resource type="PackedScene" uid="uid://bnxegwp3ssyfr" path="res://Shopping/PowerUps/item_4.tscn" id="5_yymmd"]
+[ext_resource type="PackedScene" uid="uid://bp2g0pm8i7lh1" path="res://Shopping/PowerUps/item_5.tscn" id="6_vvu0h"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -15,7 +18,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4qr4x")
-itens = Array[PackedScene]([ExtResource("2_ajnks"), ExtResource("2_ajnks"), ExtResource("3_fhysv"), ExtResource("3_fhysv")])
+itens = Array[PackedScene]([ExtResource("2_ajnks"), ExtResource("3_fhysv"), ExtResource("4_1grnk"), ExtResource("5_yymmd"), ExtResource("6_vvu0h")])
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
