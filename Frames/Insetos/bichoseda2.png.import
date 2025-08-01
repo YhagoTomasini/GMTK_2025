@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://coru3h047em5j"
-path="res://.godot/imported/bichoseda2.png-43c1a83f141e470c2ff4d1cbfae40af9.ctex"
+path="res://.godot/imported/bichoseda2.png-be4e60b5887cc4812d44597fdf3533c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/bichoseda2.png"
-dest_files=["res://.godot/imported/bichoseda2.png-43c1a83f141e470c2ff4d1cbfae40af9.ctex"]
+source_file="res://Frames/Insetos/bichoseda2.png"
+dest_files=["res://.godot/imported/bichoseda2.png-be4e60b5887cc4812d44597fdf3533c3.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnyxk8fflfqws"
-path="res://.godot/imported/chiclete.png-8016e72354fe93f2e0c5d323a2180c1a.ctex"
+path="res://.godot/imported/chiclete.png-102242dc53a1440457ea437a7011de44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/chiclete.png"
-dest_files=["res://.godot/imported/chiclete.png-8016e72354fe93f2e0c5d323a2180c1a.ctex"]
+source_file="res://Frames/Obstaculos/chiclete.png"
+dest_files=["res://.godot/imported/chiclete.png-102242dc53a1440457ea437a7011de44.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dio20g1mj6jww"
-path="res://.godot/imported/joaninha2.png-721837002f478ba2bdad3722c59344a0.ctex"
+path="res://.godot/imported/joaninha2.png-391575aae81f004b39c11579c01a51ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/joaninha2.png"
-dest_files=["res://.godot/imported/joaninha2.png-721837002f478ba2bdad3722c59344a0.ctex"]
+source_file="res://Frames/Insetos/joaninha2.png"
+dest_files=["res://.godot/imported/joaninha2.png-391575aae81f004b39c11579c01a51ce.ctex"]
 
 [params]
 

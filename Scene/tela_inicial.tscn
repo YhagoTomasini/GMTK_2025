@@ -106,11 +106,11 @@ offset_bottom = 273.0
 theme = ExtResource("3_m38ec")
 text = "What can I do?
 
-In this lil game, you are ___, a lil spider trying to find shelter from a big storm rolling in. To reach your goal, you'll have to climb as fast as you can while dodging obstacles and protecting yourself from the storm’s signs.
+In this game, you are ___, a lil spider trying to find shelter from a big storm rolling in. To reach your goal, you'll have to climb as fast as you can while dodging obstacles and protecting yourself from the storm’s signs.
 
 For that, you can count on your powerful web! When shot, it can grab berries from far away, cover holes so you can pass through, and block those toads so they won’t bug you anymore.
 
-All of that sounds too difficult?! Don’t worry, the Pack Rat got your back! His insects will boost your abilities, but they ain’t free, so make sure you collect berries on your way up.
+All of that sounds too difficult?! Don’t worry, the Pack Rat's got your back! His insects will boost your abilities, but they ain’t free, so make sure you collect berries on your way up.
 
 So go ahead, it might feel like a LOOP of attempts, but giving up ain't an option."
 autowrap_mode = 2

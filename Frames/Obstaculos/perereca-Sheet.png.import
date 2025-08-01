@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccnqmtm5tfn3j"
-path="res://.godot/imported/perereca-Sheet.png-4daa8f35c39e900cd7c6bf4857bfc1bc.ctex"
+path="res://.godot/imported/perereca-Sheet.png-10dbddd9346d6d3ede9b909b3a09fb9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/perereca-Sheet.png"
-dest_files=["res://.godot/imported/perereca-Sheet.png-4daa8f35c39e900cd7c6bf4857bfc1bc.ctex"]
+source_file="res://Frames/Obstaculos/perereca-Sheet.png"
+dest_files=["res://.godot/imported/perereca-Sheet.png-10dbddd9346d6d3ede9b909b3a09fb9b.ctex"]
 
 [params]
 

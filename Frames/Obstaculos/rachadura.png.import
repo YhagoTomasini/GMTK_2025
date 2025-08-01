@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://efuwhhbx0jni"
-path="res://.godot/imported/rachadura.png-635701433ec151e458c7f988797eece9.ctex"
+path="res://.godot/imported/rachadura.png-098b5629332b97f8dc3d6b83001a5c89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/rachadura.png"
-dest_files=["res://.godot/imported/rachadura.png-635701433ec151e458c7f988797eece9.ctex"]
+source_file="res://Frames/Obstaculos/rachadura.png"
+dest_files=["res://.godot/imported/rachadura.png-098b5629332b97f8dc3d6b83001a5c89.ctex"]
 
 [params]
 

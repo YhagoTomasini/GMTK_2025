@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7cr0d4m7mm1r"
-path="res://.godot/imported/mosca1.png-65790e88c919cac054f0ac5a3e5a7a20.ctex"
+path="res://.godot/imported/mosca1.png-d7bc7231f6584a5278c88e3ad7d0f571.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/mosca1.png"
-dest_files=["res://.godot/imported/mosca1.png-65790e88c919cac054f0ac5a3e5a7a20.ctex"]
+source_file="res://Frames/Insetos/mosca1.png"
+dest_files=["res://.godot/imported/mosca1.png-d7bc7231f6584a5278c88e3ad7d0f571.ctex"]
 
 [params]
 

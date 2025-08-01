@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy8v6t7chfwra"
-path="res://.godot/imported/pack_rat.png-7efd78cfcaee17a0593f7f505fc31937.ctex"
+path="res://.godot/imported/pack_rat.png-c1e273121162d113e7da06391c448832.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/pack_rat.png"
-dest_files=["res://.godot/imported/pack_rat.png-7efd78cfcaee17a0593f7f505fc31937.ctex"]
+source_file="res://Frames/Pack Rat/pack_rat.png"
+dest_files=["res://.godot/imported/pack_rat.png-c1e273121162d113e7da06391c448832.ctex"]
 
 [params]
 

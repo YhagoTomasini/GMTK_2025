@@ -1,18 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c04rn7codgnc0"]
+[gd_scene load_steps=2 format=3 uid="uid://c04rn7codgnc0"]
 
-[ext_resource type="Texture2D" uid="uid://bijn8doner6b1" path="res://Frames/teia.png" id="1_3mwsx"]
-[ext_resource type="Texture2D" uid="uid://efuwhhbx0jni" path="res://Frames/rachadura.png" id="1_fo5ue"]
+[ext_resource type="Texture2D" uid="uid://ddjeopirphqxr" path="res://Frames/Obstaculos/rachadura_teia.png" id="1_3mwsx"]
 
 [node name="Teia_Path" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_fo5ue")
-
-[node name="Rachadura" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_3mwsx")
-
-[node name="Rachadura2" type="Sprite2D" parent="."]
-position = Vector2(-3.72529e-09, 0)
-rotation = 3.13082
-scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_3mwsx")

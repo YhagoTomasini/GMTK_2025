@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bph2jvikmpag2"
-path="res://.godot/imported/lagarta1.png-359599ac3b63212291ab5c602cf84b9a.ctex"
+path="res://.godot/imported/lagarta1.png-ee981b9fc8c2e6395d9438d8d79e945f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/lagarta1.png"
-dest_files=["res://.godot/imported/lagarta1.png-359599ac3b63212291ab5c602cf84b9a.ctex"]
+source_file="res://Frames/Insetos/lagarta1.png"
+dest_files=["res://.godot/imported/lagarta1.png-ee981b9fc8c2e6395d9438d8d79e945f.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnon73ox6x53l"
-path="res://.godot/imported/mirtilo.png-ba97ca5fc864b7d8db80db8b94aeb934.ctex"
+path="res://.godot/imported/mirtilo.png-b1b9af1f38eaa36c8f317d33ccd6d966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/mirtilo.png"
-dest_files=["res://.godot/imported/mirtilo.png-ba97ca5fc864b7d8db80db8b94aeb934.ctex"]
+source_file="res://Frames/Frutas/mirtilo.png"
+dest_files=["res://.godot/imported/mirtilo.png-b1b9af1f38eaa36c8f317d33ccd6d966.ctex"]
 
 [params]
 

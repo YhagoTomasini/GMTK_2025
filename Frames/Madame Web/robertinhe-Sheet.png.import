@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnyx8dh8l5smr"
-path="res://.godot/imported/robertinhe-Sheet.png-4e80c9a75e27656c1be3c1aa51781d1e.ctex"
+path="res://.godot/imported/robertinhe-Sheet.png-58a793339d8489e0979780057426d50f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/robertinhe-Sheet.png"
-dest_files=["res://.godot/imported/robertinhe-Sheet.png-4e80c9a75e27656c1be3c1aa51781d1e.ctex"]
+source_file="res://Frames/Madame Web/robertinhe-Sheet.png"
+dest_files=["res://.godot/imported/robertinhe-Sheet.png-58a793339d8489e0979780057426d50f.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddjeopirphqxr"
-path="res://.godot/imported/rachadura_teia.png-642faf34072a84c4aa983169792ff99d.ctex"
+path="res://.godot/imported/rachadura_teia.png-790d52ca755520562b2cd2f278980c04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/rachadura_teia.png"
-dest_files=["res://.godot/imported/rachadura_teia.png-642faf34072a84c4aa983169792ff99d.ctex"]
+source_file="res://Frames/Obstaculos/rachadura_teia.png"
+dest_files=["res://.godot/imported/rachadura_teia.png-790d52ca755520562b2cd2f278980c04.ctex"]
 
 [params]
 

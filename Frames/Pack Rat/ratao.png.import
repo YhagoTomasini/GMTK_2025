@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqlbnfu7mdxee"
-path="res://.godot/imported/ratao.png-cc29ce67d9d793634e693c9f2c64e619.ctex"
+path="res://.godot/imported/ratao.png-fcbcd159acc47502220b8239f4861a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/ratao.png"
-dest_files=["res://.godot/imported/ratao.png-cc29ce67d9d793634e693c9f2c64e619.ctex"]
+source_file="res://Frames/Pack Rat/ratao.png"
+dest_files=["res://.godot/imported/ratao.png-fcbcd159acc47502220b8239f4861a2f.ctex"]
 
 [params]
 

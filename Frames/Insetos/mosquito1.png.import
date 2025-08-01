@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ch1gxn47io41w"
-path="res://.godot/imported/mosquito1.png-731a9ecfc57ba040c17ad96b0a3e7c92.ctex"
+path="res://.godot/imported/mosquito1.png-e77287d63873a662510c8199da57c999.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/mosquito1.png"
-dest_files=["res://.godot/imported/mosquito1.png-731a9ecfc57ba040c17ad96b0a3e7c92.ctex"]
+source_file="res://Frames/Insetos/mosquito1.png"
+dest_files=["res://.godot/imported/mosquito1.png-e77287d63873a662510c8199da57c999.ctex"]
 
 [params]
 

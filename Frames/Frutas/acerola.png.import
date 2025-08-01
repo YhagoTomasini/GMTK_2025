@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tk5x420aj2rb"
-path="res://.godot/imported/acerola.png-83adcb46f5395649e64ef3cc6e6e27e9.ctex"
+path="res://.godot/imported/acerola.png-4f3734d9c444fbb46d6d7a6aab774342.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/acerola.png"
-dest_files=["res://.godot/imported/acerola.png-83adcb46f5395649e64ef3cc6e6e27e9.ctex"]
+source_file="res://Frames/Frutas/acerola.png"
+dest_files=["res://.godot/imported/acerola.png-4f3734d9c444fbb46d6d7a6aab774342.ctex"]
 
 [params]
 

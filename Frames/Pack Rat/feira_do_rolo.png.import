@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmxncj0uvbbe2"
-path="res://.godot/imported/feira_do_rolo.png-d62451dbfc2ee69403b4621c31642cc5.ctex"
+path="res://.godot/imported/feira_do_rolo.png-991d70e768fb902fdb3f4c895d059e3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frames/feira_do_rolo.png"
-dest_files=["res://.godot/imported/feira_do_rolo.png-d62451dbfc2ee69403b4621c31642cc5.ctex"]
+source_file="res://Frames/Pack Rat/feira_do_rolo.png"
+dest_files=["res://.godot/imported/feira_do_rolo.png-991d70e768fb902fdb3f4c895d059e3b.ctex"]
 
 [params]
 
