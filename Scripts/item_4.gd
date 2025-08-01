@@ -17,6 +17,8 @@ func _on_button_down() -> void:
 func ativarEfeito():
 	if Globals.berries >= custo:
 		Globals.cdTeia -= Globals.cdTeia*0.1
+		Globals.cLadybug += 1
+		Globals.berries -= custo
 		
 		get_parent().get_parent().get_parent().selectItem()
 		

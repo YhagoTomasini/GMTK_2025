@@ -17,6 +17,8 @@ func _on_button_down() -> void:
 func ativarEfeito():
 	if Globals.berries >= custo:
 		Globals.speed += Globals.speed*0.1
+		Globals.cFlies += 1
+		Globals.berries -= custo
 		
 		get_parent().get_parent().get_parent().selectItem()
 		
