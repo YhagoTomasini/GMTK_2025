@@ -20,6 +20,7 @@ func _ready() -> void:
 	selectItem()
 	
 func selectItem():
+	
 	#if shop_slot_1.get_child_count() != null:
 		#shop_slot_1.get_child(0).grab_focus()
 	#else:
@@ -33,6 +34,11 @@ func selectItem():
 					#shop_slot_4.get_child(0).grab_focus()
 				#else:
 	botaoSair.grab_focus()
+	shop_slot_1.get_child(0).updateCusto()
+	shop_slot_2.get_child(0).updateCusto()
+	shop_slot_3.get_child(0).updateCusto()
+	shop_slot_4.get_child(0).updateCusto()
+	
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

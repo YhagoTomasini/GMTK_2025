@@ -5,11 +5,14 @@ extends Button
 
 
 func _ready() -> void:
-	custo += Globals.cCat
-	custoLabel.text = str(custo)
+	pass
+	
+func updateCusto():
+	print("cutoso")
+	custo += Globals.cMosquito
 
 func _process(_delta: float) -> void:
-	pass
+	custoLabel.text = str(custo)
 
 func _on_button_down() -> void:
 	ativarEfeito()

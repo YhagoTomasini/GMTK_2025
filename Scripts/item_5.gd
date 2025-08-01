@@ -5,14 +5,14 @@ extends Button
 
 
 func _ready() -> void:
-	custo += Globals.cMosquito
-	updateCusto()
+	pass
 	
 func updateCusto():
-	custoLabel.text = str(custo)
+	print("cutoso")
+	custo += Globals.cMosquito
 
 func _process(_delta: float) -> void:
-	pass
+	custoLabel.text = str(custo)
 
 func _on_button_down() -> void:
 	ativarEfeito()
@@ -26,8 +26,6 @@ func ativarEfeito():
 		get_parent().get_parent().get_parent().selectItem()
 
 		await get_tree().create_timer(0.1).timeout
-		updateCusto()
-		
 		queue_free()
 	else:
 		modulate = Color(0.7, 0.2, 0.2, 1)

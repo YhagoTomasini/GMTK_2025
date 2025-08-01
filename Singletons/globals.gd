@@ -12,7 +12,7 @@ var cdTeia : float = 3
 var cdCasulo : float = 10
 var teias : int
 var casulos : int
-var speed = 80.0
+var speed = 60.0
 
 #ITENS
 var cFlies : int = 0

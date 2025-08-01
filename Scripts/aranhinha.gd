@@ -181,8 +181,9 @@ func _physics_process(delta: float) -> void:
 		
 		input_vector = input_vector.normalized()
 		
+		#GOMA
 		if is_slow:
-			velocity = input_vector * (Globals.speed/2)
+			velocity = input_vector * (Globals.speed/4)
 		else:
 			velocity = input_vector * Globals.speed
 			
