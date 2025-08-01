@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwsx65a841rx2"]
 
 [node name="ShopSlot" type="Panel"]
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.486275)
 offset_right = 32.0
 offset_bottom = 32.0
