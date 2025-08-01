@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://4r63ua24jq2y"]
+[gd_scene load_steps=5 format=3 uid="uid://4r63ua24jq2y"]
 
 [ext_resource type="FontFile" uid="uid://dwuka0482ilys" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_cqt20"]
 [ext_resource type="Script" path="res://Scene/tile_screen.gd" id="1_nobhe"]
+[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="3_agx2s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqt20"]
 
@@ -53,6 +54,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_cqt20")
 
 [node name="Quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_agx2s")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_btn" to="." method="_on_start_btn_pressed"]
