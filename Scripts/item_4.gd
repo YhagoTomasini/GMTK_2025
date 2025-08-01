@@ -1,9 +1,12 @@
 extends Button
 
 @export var custo : int
+@onready var custoLabel: Label = $custo
+
 
 func _ready() -> void:
-	pass # Replace with function body.
+	custo += Globals.cLadybug
+	custoLabel.text = str(custo)
 
 func _process(_delta: float) -> void:
 	pass
@@ -19,4 +22,7 @@ func ativarEfeito():
 		
 		await get_tree().create_timer(0.1).timeout
 		queue_free()
-		
+	else:
+		modulate = Color(0.7, 0.2, 0.2, 1)
+		await get_tree().create_timer(0.3).timeout
+		modulate = Color(1, 1, 1, 1)

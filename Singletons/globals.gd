@@ -13,3 +13,10 @@ var cdCasulo : float = 10
 var teias : int
 var casulos : int
 var speed = 80.0
+
+#ITENS
+var cFlies : int = 0
+var cMoth : int = 0
+var cCat : int = 0
+var cLadybug : int = 0
+var cMosquito : int = 0

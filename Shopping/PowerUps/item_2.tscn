@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1w7grxmr0sbe"]
 
-[ext_resource type="Texture2D" uid="uid://coru3h047em5j" path="res://Frames/bichoseda2.png" id="1_fdhmu"]
+[ext_resource type="Texture2D" uid="uid://coru3h047em5j" path="res://Frames/Insetos/bichoseda2.png" id="1_fdhmu"]
 [ext_resource type="Script" uid="uid://knsongnpxhkn" path="res://Scripts/item_2.gd" id="1_i4gkl"]
-[ext_resource type="Texture2D" uid="uid://bskfbbpn4u13b" path="res://Frames/bichoseda1.png" id="1_shauj"]
+[ext_resource type="Texture2D" uid="uid://bskfbbpn4u13b" path="res://Frames/Insetos/bichoseda1.png" id="1_shauj"]
 [ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="4_f8itx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8itx"]
@@ -17,6 +17,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_f8itx")
 icon = ExtResource("1_shauj")
 flat = true
 script = ExtResource("1_i4gkl")
+custo = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -29,5 +30,17 @@ text = "MOTH
 Increase your
 COCOON STOCK by 1"
 horizontal_alignment = 1
+
+[node name="custo" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 48.0
+offset_right = 244.0
+offset_bottom = 78.0
+theme = ExtResource("4_f8itx")
+theme_override_colors/font_color = Color(0.488179, 1, 0.456277, 1)
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

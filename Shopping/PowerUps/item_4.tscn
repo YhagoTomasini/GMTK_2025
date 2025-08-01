@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnxegwp3ssyfr"]
 
-[ext_resource type="Texture2D" uid="uid://dio20g1mj6jww" path="res://Frames/joaninha2.png" id="1_53g1v"]
-[ext_resource type="Texture2D" uid="uid://dfi70cn1aigvq" path="res://Frames/joaninha1png.png" id="1_hihwk"]
+[ext_resource type="Texture2D" uid="uid://dio20g1mj6jww" path="res://Frames/Insetos/joaninha2.png" id="1_53g1v"]
+[ext_resource type="Texture2D" uid="uid://dfi70cn1aigvq" path="res://Frames/Insetos/joaninha1png.png" id="1_hihwk"]
 [ext_resource type="Script" uid="uid://c6kt385ly1rnj" path="res://Scripts/item_4.gd" id="1_hioey"]
 [ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="4_kvyb7"]
 
@@ -17,6 +17,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_kvyb7")
 icon = ExtResource("1_hihwk")
 flat = true
 script = ExtResource("1_hioey")
+custo = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -30,5 +31,17 @@ Decrease
 WEB COOLDOWN
 time"
 horizontal_alignment = 1
+
+[node name="custo" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 94.0
+offset_right = 200.0
+offset_bottom = 124.0
+theme = ExtResource("4_kvyb7")
+theme_override_colors/font_color = Color(0.488179, 1, 0.456277, 1)
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
