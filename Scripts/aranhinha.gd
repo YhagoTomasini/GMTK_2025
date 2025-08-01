@@ -56,8 +56,10 @@ func _ready() -> void:
 func chuva_a_derrubou():
 	print("CHUVAAAAAAAAAAAAAAAA")
 	var posicaoAtual : float = position.y
-	collisionArana.disabled = true
-	collisionArea.disabled = true
+	#collisionArana.disabled = true
+	#collisionArea.disabled = true
+	collisionArana.set_deferred("disabled", true)
+	collisionArea.set_deferred("disabled", true)
 	foraDaCasinha = false
 	
 	var tween := get_tree().create_tween()
