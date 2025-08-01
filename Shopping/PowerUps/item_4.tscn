@@ -33,6 +33,7 @@ time"
 horizontal_alignment = 1
 
 [node name="custo" type="Label" parent="."]
+layout_mode = 0
 offset_left = 160.0
 offset_top = 94.0
 offset_right = 200.0
