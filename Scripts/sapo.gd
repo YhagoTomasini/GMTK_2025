@@ -17,9 +17,9 @@ func sapo_ao_ataque():
 	if vivo:
 		anim.play("linguada")
 		if damage_area.is_colliding():
-			var target = damage_area.get_collider()
-			
-			if target.name == "Aranhinha":
+			#var target = damage_area.get_collider()
+			#
+			#if target.name == "Aranhinha":
 				get_tree().reload_current_scene()
 				print("papou a aranha")
 	else:
