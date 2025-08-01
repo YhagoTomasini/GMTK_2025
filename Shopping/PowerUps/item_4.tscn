@@ -1,34 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnxegwp3ssyfr"]
+[gd_scene load_steps=2 format=3 uid="uid://bnxegwp3ssyfr"]
 
-[ext_resource type="Texture2D" uid="uid://cyfuwoosweju2" path="res://Frames/joaninha2.png" id="1_53g1v"]
-[ext_resource type="Texture2D" uid="uid://d3qgha7s6nq38" path="res://Frames/joaninha1png.png" id="1_hihwk"]
 [ext_resource type="Script" uid="uid://c6kt385ly1rnj" path="res://Scripts/item_4.gd" id="1_hioey"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_kvyb7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvyb7"]
-texture = ExtResource("1_53g1v")
 
 [node name="Item4" type="Button"]
-offset_left = -98.0
-offset_top = -109.0
-offset_right = 100.0
-offset_bottom = 109.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_kvyb7")
-icon = ExtResource("1_hihwk")
-flat = true
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_hioey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 220.0
-offset_right = 172.0
-offset_bottom = 243.0
-theme = ExtResource("4_kvyb7")
-text = "LADYBUG
-Decrease
-WEB COOLDOWN
-time"
-horizontal_alignment = 1
+offset_left = -6.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "Gera teias + rapido"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

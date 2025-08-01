@@ -1,40 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://v1xnkuab6ehk"]
+[gd_scene load_steps=2 format=3 uid="uid://v1xnkuab6ehk"]
 
 [ext_resource type="Script" uid="uid://bknm182qciy3v" path="res://Scripts/item_1.gd" id="1_c421s"]
-[ext_resource type="Texture2D" uid="uid://326dk41o31yf" path="res://Frames/mosca2.png" id="1_t3vfv"]
-[ext_resource type="Texture2D" uid="uid://btdg8o23iba2k" path="res://Frames/mosca1.png" id="2_nxt2d"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_nxt2d"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxt2d"]
-texture = ExtResource("1_t3vfv")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3vfv"]
-texture = ExtResource("1_t3vfv")
 
 [node name="Item1" type="Button"]
-offset_left = -104.0
-offset_top = -120.0
-offset_right = 104.0
-offset_bottom = 118.0
+self_modulate = Color(0.738367, 0.000416812, 0.738362, 1)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxTexture_nxt2d")
-theme_override_styles/hover = SubResource("StyleBoxTexture_t3vfv")
-icon = ExtResource("2_nxt2d")
-flat = true
 icon_alignment = 1
 script = ExtResource("1_c421s")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = -47.0
-offset_top = 220.0
-offset_right = 256.0
-offset_bottom = 295.0
-theme = ExtResource("4_nxt2d")
-text = "FLIES
-Increase your movement
-SPEED by 10%"
-horizontal_alignment = 1
+offset_left = -6.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "Spped"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

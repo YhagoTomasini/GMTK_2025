@@ -1,33 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp2g0pm8i7lh1"]
+[gd_scene load_steps=2 format=3 uid="uid://bp2g0pm8i7lh1"]
 
 [ext_resource type="Script" uid="uid://bojvk3lwmwhwa" path="res://Scripts/item_5.gd" id="1_2sdia"]
-[ext_resource type="Texture2D" uid="uid://cds1ixbccrlgm" path="res://Frames/mosquito1.png" id="1_8xy87"]
-[ext_resource type="Texture2D" uid="uid://dax3xd118va0r" path="res://Frames/mosquito2.png" id="1_wlpf7"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_5tumd"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tumd"]
-texture = ExtResource("1_wlpf7")
 
 [node name="Item5" type="Button"]
-offset_left = -144.0
-offset_top = -144.0
-offset_right = 144.0
-offset_bottom = 144.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_5tumd")
-icon = ExtResource("1_8xy87")
-flat = true
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_2sdia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 280.0
-offset_right = 218.0
-offset_bottom = 355.0
-theme = ExtResource("4_5tumd")
-text = "MOSQUITO
-Increase
-WEB FORCE by 10%"
-horizontal_alignment = 1
+offset_left = -6.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "Teia + alcance"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

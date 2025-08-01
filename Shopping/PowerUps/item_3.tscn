@@ -1,33 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://0a3tltyarvt3"]
+[gd_scene load_steps=2 format=3 uid="uid://0a3tltyarvt3"]
 
-[ext_resource type="Texture2D" uid="uid://btne7b1cqcfrn" path="res://Frames/lagarta2.png" id="1_fw4l6"]
-[ext_resource type="Texture2D" uid="uid://c7a1wfokqtq3e" path="res://Frames/lagarta1.png" id="1_g0rdc"]
 [ext_resource type="Script" uid="uid://dclesbgqpjhoj" path="res://Scripts/item_3.gd" id="1_lwp56"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_34sg6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_34sg6"]
-texture = ExtResource("1_fw4l6")
 
 [node name="Item3" type="Button"]
-offset_left = -214.0
-offset_top = -120.0
-offset_right = 214.0
-offset_bottom = 118.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_34sg6")
-icon = ExtResource("1_g0rdc")
-flat = true
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_lwp56")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 151.0
-offset_top = 240.0
-offset_right = 277.0
-offset_bottom = 315.0
-theme = ExtResource("4_34sg6")
-text = "CATERPILLAR
-Increase your
-WEB STOCK by 1"
-horizontal_alignment = 1
+offset_left = -6.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "+ Teias"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
