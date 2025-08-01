@@ -4,6 +4,8 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var cam: Camera2D = $"../Camera2D"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collisionArana: CollisionShape2D = $CollisionArana
+@onready var collisionArea: CollisionShape2D = $Area2D/CollisionShape2D
+
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
 @onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
 @onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
@@ -45,6 +47,21 @@ func _ready() -> void:
 	comCasulo = true
 	foraDaCasinha = true
 	inicio = true
+	
+	collisionArana.disabled = false
+	collisionArea.disabled = false
+	
+func chuva_a_derrubou():
+	var posicaoAtual = position.y
+	collisionArana.disabled = true
+	collisionArea.disabled = true
+	
+	foraDaCasinha = false
+	position.y = lerp(posicaoAtual, 636, 10)
+	
+	await get_tree().create_timer(5).timeout
+	get_tree().reload_current_scene()
+	
 
 func podeTeia():
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)

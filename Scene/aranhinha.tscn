@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://bfo5k8xf7psfo"]
 
 [ext_resource type="Script" uid="uid://dtdr3n4ewq4oe" path="res://Scripts/aranhinha.gd" id="1_yfdyg"]
-[ext_resource type="Texture2D" uid="uid://dpyl6a1ldntt" path="res://Frames/robertinhe_casulo-Sheet.png" id="2_hblxq"]
-[ext_resource type="Texture2D" uid="uid://dnyx8dh8l5smr" path="res://Frames/robertinhe-Sheet.png" id="2_yfdyg"]
+[ext_resource type="Texture2D" path="res://Frames/robertinhe_casulo-Sheet.png" id="2_hblxq"]
+[ext_resource type="Texture2D" path="res://Frames/robertinhe-Sheet.png" id="2_yfdyg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_r1b3v"]
 
