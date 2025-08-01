@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp2g0pm8i7lh1"]
 
 [ext_resource type="Script" uid="uid://bojvk3lwmwhwa" path="res://Scripts/item_5.gd" id="1_2sdia"]
-[ext_resource type="Texture2D" uid="uid://cds1ixbccrlgm" path="res://Frames/mosquito1.png" id="1_8xy87"]
-[ext_resource type="Texture2D" uid="uid://dax3xd118va0r" path="res://Frames/mosquito2.png" id="1_wlpf7"]
+[ext_resource type="Texture2D" uid="uid://ch1gxn47io41w" path="res://Frames/mosquito1.png" id="1_8xy87"]
+[ext_resource type="Texture2D" uid="uid://dl65nrpdignnj" path="res://Frames/mosquito2.png" id="1_wlpf7"]
 [ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_5tumd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tumd"]

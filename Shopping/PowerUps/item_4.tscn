@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnxegwp3ssyfr"]
 
-[ext_resource type="Texture2D" uid="uid://cyfuwoosweju2" path="res://Frames/joaninha2.png" id="1_53g1v"]
-[ext_resource type="Texture2D" uid="uid://d3qgha7s6nq38" path="res://Frames/joaninha1png.png" id="1_hihwk"]
+[ext_resource type="Texture2D" uid="uid://dio20g1mj6jww" path="res://Frames/joaninha2.png" id="1_53g1v"]
+[ext_resource type="Texture2D" uid="uid://dfi70cn1aigvq" path="res://Frames/joaninha1png.png" id="1_hihwk"]
 [ext_resource type="Script" uid="uid://c6kt385ly1rnj" path="res://Scripts/item_4.gd" id="1_hioey"]
 [ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="4_kvyb7"]
 
