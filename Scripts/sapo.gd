@@ -7,7 +7,7 @@ extends CharacterBody2D
 var vivo : bool = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#if damage_area.is_colliding():
 		#print("papou a aranha")
 	pass
@@ -23,7 +23,7 @@ func sapo_ao_ataque():
 func _on_timer_timeout() -> void:
 	sapo_ao_ataque()
 
-func _on_anim_animation_finished(anim_name: StringName) -> void:
+func _on_anim_animation_finished(_anim_name: StringName) -> void:
 	anim.play("idle")
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

@@ -24,7 +24,7 @@ func _ready() -> void:
 	elif escolha_da_frutinha == 4:
 		anim_sprite.play("mirtilo")
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if capturado:
 		position = posiTeia.global_position
 
