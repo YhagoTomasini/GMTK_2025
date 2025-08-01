@@ -6,7 +6,8 @@ extends CharacterBody2D
 
 var vivo : bool = true
 
-
+func _ready() -> void:
+	timer.wait_time = randf_range(2.0, 8.0)
 func _process(_delta: float) -> void:
 	#if damage_area.is_colliding():
 		#print("papou a aranha")
@@ -22,6 +23,7 @@ func sapo_ao_ataque():
 	
 func _on_timer_timeout() -> void:
 	sapo_ao_ataque()
+	timer.wait_time = randf_range(2.0, 8.0)
 
 func _on_anim_animation_finished(_anim_name: StringName) -> void:
 	anim.play("idle")
