@@ -7,6 +7,8 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
 @onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
 @onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
+@onready var teste_de_chuva: Node2D = $"../Camera2D/TesteDeChuva"
+
 #TEXTS
 @onready var text_berries: Label = $"../HUD/Control/TextBerries"
 @onready var text_casulos: Label = $"../HUD/Control/TextCasulos"
@@ -192,3 +194,4 @@ func _on_inicio_body_entered(body: Node2D) -> void:
 func _on_inicio_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		inicio = false
+		teste_de_chuva.spawn_da_chuva()
