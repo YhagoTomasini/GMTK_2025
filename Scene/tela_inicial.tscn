@@ -34,6 +34,7 @@ text = "Let's JAM"
 flat = true
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 
@@ -42,6 +43,11 @@ layout_mode = 2
 theme = ExtResource("2_m38ec")
 text = "How the fuck I play?"
 flat = true
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -58,6 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="ControlsPanel"]
+self_modulate = Color(0.188235, 0.188235, 0.333333, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,59 +72,61 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -440.0
-offset_top = -264.0
+offset_top = -310.0
 offset_right = 440.0
-offset_bottom = 238.0
+offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(440, 260)
+pivot_offset = Vector2(440, 310)
 
 [node name="Label" type="Label" parent="ControlsPanel/Panel"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 256.0
-offset_right = 506.0
-offset_bottom = 479.0
+layout_mode = 1
+offset_left = 42.0
+offset_top = 300.0
+offset_right = 504.0
+offset_bottom = 523.0
 theme = ExtResource("3_m38ec")
 text = "Controls:
 
-WASD / Arrows / Joy Stick / D-Pad : Movement / Navegate throuth buttons
+WASD / Arrow Keys / Joystick / D-Pad – Move / Navigate through buttons
 
-SPACE / Mouse Left-Click / Controler Buttom 1 : Shoot Web / Interact
+SPACE / Left Mouse Click / Controller Button 1 – Shoot Web / Interact
 
-E / Mouse Right-Click / Controler Buttom 2 : Create Cocoon
+E / Right Mouse Click / Controller Button 2 – Create Cocoon
 
-ESC / Controle Button X : Pause"
+ESC / Controller Button X – Pause"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="ControlsPanel/Panel"]
-offset_left = 33.0
-offset_top = 19.0
-offset_right = 840.0
-offset_bottom = 249.0
+offset_left = 42.0
+offset_top = 42.0
+offset_right = 842.0
+offset_bottom = 273.0
 theme = ExtResource("3_m38ec")
 text = "What can I do?
 
-At this lil game your are ___, a lil spider trying to find a shelter from a big storm that comes by. To reach your goal you will have to climb teh faster you can while dodging obstacles and protecting your self from storm's signs.
-For that you can count with your powerfull web, that when shooted it can grab berries from far away; cover holes so you can pass by; and block those toads so they can bore you anymore.
-All of that looks to dificcult?! Don'w worry, the Pack Rat can help you! His insects will boost your abilitties, but they aren't free, so make sure you collect berries on your run.
+In this lil game, you are ___, a lil spider trying to find shelter from a big storm rolling in. To reach your goal, you'll have to climb as fast as you can while dodging obstacles and protecting yourself from the storm’s signs.
 
-So go ahead, it may looks like a LOOP of attempts, but give up isn't a option."
+For that, you can count on your powerful web! When shot, it can grab berries from far away, cover holes so you can pass through, and block those toads so they won’t bug you anymore.
+
+All of that sounds too difficult?! Don’t worry, the Pack Rat got your back! His insects will boost your abilities, but they ain’t free, so make sure you collect berries on your way up.
+
+So go ahead, it might feel like a LOOP of attempts, but giving up ain't an option."
 autowrap_mode = 2
 
 [node name="CloseControlsP" type="Button" parent="ControlsPanel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -109.5
-offset_top = -100.0
+offset_top = 240.0
 offset_right = 109.5
-offset_bottom = -40.0
+offset_bottom = 300.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("2_m38ec")
 text = "Shut down"
 flat = true
