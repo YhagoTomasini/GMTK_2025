@@ -92,8 +92,8 @@ func casulo():
 	
 func _physics_process(delta: float) -> void:
 	#Movimentacao da CAMERA
-	#if position.y <= cam.position.y:
-	cam.position.y = position.y
+	if position.y <= cam.position.y:
+		cam.position.y = position.y
 	
 	text_berries.text = str(Globals.berries)
 	
