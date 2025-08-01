@@ -22,6 +22,7 @@ var vaiTeia : bool
 var comCasulo : bool
 var foraDaCasinha : bool
 var teiaReturn : bool
+var inicio : bool
 
 #SLOW
 var is_slow : bool = false
@@ -41,6 +42,7 @@ func _ready() -> void:
 	vaiTeia = true
 	comCasulo = true
 	foraDaCasinha = true
+	inicio = true
 
 func podeTeia():
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
@@ -127,11 +129,11 @@ func _physics_process(delta: float) -> void:
 	if foraDaCasinha:
 		
 	#TEIA
-		if vaiTeia and Input.is_action_just_pressed("ui_accept") and !shop:
+		if vaiTeia and Input.is_action_just_pressed("ui_accept") and !shop and !inicio:
 			cuspir()
 		
 	#CASULO
-		if comCasulo and Input.is_action_just_pressed("ui_cancel") and Globals.casulos >= 1:
+		if comCasulo and Input.is_action_just_pressed("ui_cancel") and Globals.casulos >= 1 and !inicio:
 			casulo()
 	
 	#Acesso a LOJA
@@ -168,6 +170,7 @@ func _physics_process(delta: float) -> void:
 			if foraDaCasinha:
 				anim_sprite.play("idle")
 
+#COLISAO SHOPPING
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = true
@@ -176,6 +179,16 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = false
 
+#MATAR TEIA
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Teia" and teiaReturn:
 		area.queue_free()
+
+#COLISAO INICIO
+func _on_inicio_body_entered(body: Node2D) -> void:
+	if body.name == "Aranhinha":
+		inicio = true
+
+func _on_inicio_body_exited(body: Node2D) -> void:
+	if body.name == "Aranhinha":
+		inicio = false
