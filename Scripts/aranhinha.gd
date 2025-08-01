@@ -183,8 +183,13 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 #MATAR TEIA
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "Teia" and teiaReturn:
-		area.queue_free()
+	if area.name == "Teia":
+		if teiaReturn:
+			area.queue_free()
+		else:
+			await get_tree().create_timer(0.6).timeout
+			if area != null:
+				area.queue_free()
 
 #COLISAO INICIO
 func _on_inicio_body_entered(body: Node2D) -> void:

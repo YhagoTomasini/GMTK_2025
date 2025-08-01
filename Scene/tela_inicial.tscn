@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27q0xkujf4ya"]
+
+[ext_resource type="Script" uid="uid://qehoc83p1ljc" path="res://Scripts/tela_inicial.gd" id="1_11sjr"]
+[ext_resource type="Theme" uid="uid://df36adlkmld5e" path="res://TemaBotao.tres" id="2_m38ec"]
+[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://TextoCorrido.tres" id="3_m38ec"]
+
+[node name="TelaInicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_11sjr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -220.0
+offset_right = -75.0
+offset_bottom = -68.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_m38ec")
+text = "Let's JAM"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_m38ec")
+text = "How the fuck I play?"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_m38ec")
+text = "Fuck off"
+flat = true
+
+[node name="ControlsPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -264.0
+offset_right = 440.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 260)
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 256.0
+offset_right = 506.0
+offset_bottom = 479.0
+theme = ExtResource("3_m38ec")
+text = "Controls:
+
+WASD / Arrows / Joy Stick / D-Pad : Movement / Navegate throuth buttons
+
+SPACE / Mouse Left-Click / Controler Buttom 1 : Shoot Web / Interact
+
+E / Mouse Right-Click / Controler Buttom 2 : Create Cocoon
+
+ESC / Controle Button X : Pause"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="ControlsPanel/Panel"]
+offset_left = 33.0
+offset_top = 19.0
+offset_right = 840.0
+offset_bottom = 249.0
+theme = ExtResource("3_m38ec")
+text = "What can I do?
+
+At this lil game your are ___, a lil spider trying to find a shelter from a big storm that comes by. To reach your goal you will have to climb teh faster you can while dodging obstacles and protecting your self from storm's signs.
+For that you can count with your powerfull web, that when shooted it can grab berries from far away; cover holes so you can pass by; and block those toads so they can bore you anymore.
+All of that looks to dificcult?! Don'w worry, the Pack Rat can help you! His insects will boost your abilitties, but they aren't free, so make sure you collect berries on your run.
+
+So go ahead, it may looks like a LOOP of attempts, but give up isn't a option."
+autowrap_mode = 2
+
+[node name="CloseControlsP" type="Button" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.5
+offset_top = -100.0
+offset_right = 109.5
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_m38ec")
+text = "Shut down"
+flat = true
+
+[connection signal="button_down" from="VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="VBoxContainer/Controls" to="." method="_on_controls_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="ControlsPanel/CloseControlsP" to="." method="_on_close_controls_p_button_down"]

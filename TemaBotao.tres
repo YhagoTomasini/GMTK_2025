@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://df36adlkmld5e"]
+
+[ext_resource type="FontFile" uid="uid://6ucm2sd2f6y" path="res://Fonts/Minecraft-Seven_v2.ttf" id="1_3ncyw"]
+
+[resource]
+Button/colors/font_color = Color(0.952941, 0.733333, 0.337255, 1)
+Button/colors/font_focus_color = Color(0.745098, 0.211765, 0.0901961, 1)
+Button/colors/font_hover_color = Color(0.745098, 0.211765, 0.0901961, 1)
+Button/colors/font_hover_pressed_color = Color(0.745098, 0.211765, 0.0901961, 1)
+Button/colors/font_outline_color = Color(0.188235, 0.188235, 0.333333, 1)
+Button/constants/outline_size = 16
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_3ncyw")
+Button/icons/icon = null
