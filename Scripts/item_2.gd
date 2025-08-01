@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 func updateCusto():
 	print("cutoso")
-	custo += Globals.cMosquito
+	custo += Globals.cMoth
 
 func _process(_delta: float) -> void:
 	custoLabel.text = str(custo)

@@ -20,24 +20,21 @@ func _ready() -> void:
 	selectItem()
 	
 func selectItem():
-	
-	#if shop_slot_1.get_child_count() != null:
-		#shop_slot_1.get_child(0).grab_focus()
-	#else:
-		#if shop_slot_2.get_child_count() != null:
-			#shop_slot_2.get_child(0).grab_focus()
-		#else:
-			#if shop_slot_3.get_child_count() != null:
-				#shop_slot_3.get_child(0).grab_focus()
-			#else:
-				#if shop_slot_4.get_child_count() != null:
-					#shop_slot_4.get_child(0).grab_focus()
-				#else:
-	botaoSair.grab_focus()
-	shop_slot_1.get_child(0).updateCusto()
-	shop_slot_2.get_child(0).updateCusto()
-	shop_slot_3.get_child(0).updateCusto()
-	shop_slot_4.get_child(0).updateCusto()
+	if shop_slot_1.get_child_count() > 0:
+		shop_slot_1.get_child(0).grab_focus()
+	elif shop_slot_2.get_child_count() > 0:
+		shop_slot_2.get_child(0).grab_focus()
+	elif shop_slot_3.get_child_count() > 0:
+		shop_slot_3.get_child(0).grab_focus()
+	elif shop_slot_4.get_child_count() > 0:
+		shop_slot_4.get_child(0).grab_focus()
+	else:
+		botaoSair.grab_focus()
+		
+	for slot in slots:
+		if slot.get_child_count() > 0:
+			var produto = slot.get_child(0)
+			produto.updateCusto()
 	
 
 func _process(_delta: float) -> void:
