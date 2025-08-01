@@ -32,6 +32,7 @@ WEB STOCK by 1"
 horizontal_alignment = 1
 
 [node name="custo" type="Label" parent="."]
+layout_mode = 0
 offset_left = 373.0
 offset_top = 137.0
 offset_right = 413.0

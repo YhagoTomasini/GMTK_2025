@@ -7,14 +7,16 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var collisionArea: CollisionShape2D = $Area2D/CollisionShape2D
 
 @onready var anim_sprite: AnimatedSprite2D = $animSprite
-@onready var visual_cd_teia: Sprite2D = $"../HUD/Control/VisualCDTeia"
-@onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/VisualCDCasulo"
+
 @onready var teste_de_chuva: Node2D = $"../Camera2D/TesteDeChuva"
 
-#TEXTS
-@onready var text_berries: Label = $"../HUD/Control/TextBerries"
-@onready var text_casulos: Label = $"../HUD/Control/TextCasulos"
-@onready var text_teias: Label = $"../HUD/Control/TextTeias"
+#UI
+@onready var visual_cd_teia: Sprite2D = $"../HUD/Control/TeiasCounter/VisualCDTeia"
+@onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/CasulosCounter/VisualCDCasulo"
+#textos
+@onready var text_berries: Label = $"../HUD/Control/BerriesCounter/TextBerries"
+@onready var text_casulos: Label = $"../HUD/Control/CasulosCounter/TextCasulos"
+@onready var text_teias: Label = $"../HUD/Control/TeiasCounter/TextTeias"
 
 #VARIAVEIS
 var cdTimeTeia : float = 0
@@ -53,6 +55,9 @@ func _ready() -> void:
 	collisionArana.disabled = false
 	collisionArea.disabled = false
 	
+	visual_cd_casulo.modulate = Color(1, 1, 1, 0)
+	visual_cd_teia.modulate = Color(1, 1, 1, 0)
+	
 func chuva_a_derrubou():
 	print("CHUVAAAAAAAAAAAAAAAA")
 	var posicaoAtual : float = position.y
@@ -77,7 +82,7 @@ func podeTeia():
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
 	
 	await get_tree().create_timer(Globals.cdTeia).timeout
-	visual_cd_teia.modulate = Color(0.5, 1, 0.5, 0.5)
+	visual_cd_teia.modulate = Color(1, 1, 1, 0)
 	Globals.teias += 1
 	text_teias.text = str(Globals.teias)
 	vaiTeia = true
@@ -99,7 +104,7 @@ func generateCasulo():
 	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
 	
 	await get_tree().create_timer(Globals.cdCasulo).timeout
-	visual_cd_casulo.modulate = Color(0.5, 1, 0.5, 0.5)
+	visual_cd_casulo.modulate = Color(1, 1, 1, 0)
 	Globals.casulos += 1
 	text_casulos.text = str(Globals.casulos)
 	comCasulo = true
@@ -136,10 +141,10 @@ func _physics_process(delta: float) -> void:
 	if !vaiTeia:
 		cdTimeTeia += delta
 		var t = clamp(cdTimeTeia / Globals.cdTeia, 0, 1)
-		visual_cd_teia.scale.y = t
+		visual_cd_teia.scale.y = lerp(40.0, 0.0, t)
 	else:
 			cdTimeTeia = 0
-			visual_cd_teia.scale.y = 1
+			visual_cd_teia.scale.y = 40
 	
 	if vaiTeia and Globals.teias == 0:
 		podeTeia()
@@ -149,10 +154,10 @@ func _physics_process(delta: float) -> void:
 	if !comCasulo:
 		cdTimeCasulo += delta
 		var t = clamp(cdTimeCasulo / Globals.cdCasulo, 0, 1)
-		visual_cd_casulo.scale.y = t
+		visual_cd_casulo.scale.y = lerp(40.0, 0.0, t)
 	else:
 		cdTimeCasulo = 0
-		visual_cd_casulo.scale.y = 1
+		visual_cd_casulo.scale.y = 40
 		
 	if comCasulo and Globals.casulos == 0:
 		generateCasulo()
