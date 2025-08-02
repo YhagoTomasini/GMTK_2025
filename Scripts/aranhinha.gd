@@ -237,3 +237,8 @@ func _on_inicio_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		inicio = false
 		teste_de_chuva.spawn_da_chuva()
+
+#COLISAO FIM
+func _on_area_fim_body_entered(body: Node2D) -> void:
+	if body.name == "Aranhinha":
+		get_tree().change_scene_to_file("res://Scene/tela_final.tscn")

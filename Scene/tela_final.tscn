@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://co2m7wsmh2tjg"]
+
+[ext_resource type="Script" uid="uid://d2n7nvj0vs5sg" path="res://Scripts/tela_creditos.gd" id="1_xlkat"]
+[ext_resource type="PackedScene" uid="uid://bx16hcstc66m1" path="res://Scene/pause_menu.tscn" id="2_den7v"]
+[ext_resource type="Texture2D" uid="uid://bdr8myqx8cpjo" path="res://Frames/final_sem_aranha.png" id="3_xlkat"]
+[ext_resource type="Texture2D" uid="uid://du28er751ajyr" path="res://Frames/aranha_final-sheet.png" id="4_kykdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0n66"]
+atlas = ExtResource("4_kykdn")
+region = Rect2(0, 0, 58, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgp4e"]
+atlas = ExtResource("4_kykdn")
+region = Rect2(58, 0, 58, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xn0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0n66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgp4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TelaFinal" type="Control" node_paths=PackedStringArray("text_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xlkat")
+text_node = NodePath("ScrollContainer/MarginContainer/RichTextLabel")
+
+[node name="pauseMenu" parent="." instance=ExtResource("2_den7v")]
+
+[node name="FinalSemAranha" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(10, 10)
+texture = ExtResource("3_xlkat")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(0, 280)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_4xn0n")
+autoplay = "default"
+centered = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 720
+theme_override_constants/margin_bottom = 7200
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Game Title[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff][b]Studio/Team Name:[/b] [i][Insert Team or Studio Name][/i][/color][/font]
+
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Team[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Game Design:[/color][/b][color=#ffffff] [Insert Name(s)][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Programming:[/color][/b][color=#ffffff] [Insert Name(s)][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Character Design:[/color][/b][color=#ffffff] [Insert Name(s)][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Environment Art:[/color][/b][color=#ffffff] [Insert Name(s)][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]UI/UX Design:[/color][/b][color=#ffffff] [Insert Name][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Animation:[/color][/b][color=#ffffff] [Insert Name(s)][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Sound Design:[/color][/b][color=#ffffff] [Insert Name][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Writing & Narrative:[/color][/b][color=#ffffff] [Insert Name][/color][/font]
+
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Tools & Technologies[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff][b]Made with:[/b][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Godot Engine;[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Aseprite;[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Patience;[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Maternal love;[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Google docs;[/color][/b][/font]
+
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff][b]Special Thanks[/b][/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]My mom;[/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]My dad;[/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]Rebecca sugar;[/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]Gamelab;[/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]Our son;[/color][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]You, for playing this game![/color][/font]
+
+[font=res://Fonts/Minecraft-Seven_v2.ttf][b][color=#ffffff]Year of Release[/color][/b][/font]  
+[font=res://Fonts/Minecraft-Seven_v2.ttf][color=#ffffff]© 2025 – All Rights Reserved.[/color][/font]  
+[/center]
+"
+fit_content = true
+horizontal_alignment = 1

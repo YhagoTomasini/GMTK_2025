@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ifatvxy1mdkw" path="res://Scripts/sapo.gd" id="1_is6rs"]
 [ext_resource type="Texture2D" uid="uid://ccnqmtm5tfn3j" path="res://Frames/Obstaculos/perereca-Sheet.png" id="2_od3qp"]
-[ext_resource type="Texture2D" uid="uid://xsy6mbkfoesb" path="res://Frames/lingua-Sheet.png" id="3_7bbt8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cu08n"]
+load_path = "res://.godot/imported/lingua-Sheet.png-5a4917c4221ebd05718bd0aaa7284047.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu08n"]
 radius = 30.0666
@@ -206,59 +208,59 @@ size = Vector2(4, 96)
 radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgm2x"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(0, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpjaf"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(32, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4dva"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(64, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07w51"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(96, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6x5lp"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(128, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd8vy"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(160, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2rr8b"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(192, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2wpf"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(224, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55x0c"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(256, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6cxa"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(288, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpyke"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(320, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16c41"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(352, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptf3h"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(384, 0, 32, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33i6k"]
-atlas = ExtResource("3_7bbt8")
+atlas = SubResource("CompressedTexture2D_cu08n")
 region = Rect2(416, 0, 32, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uie87"]
@@ -321,9 +323,10 @@ texture = ExtResource("2_od3qp")
 hframes = 4
 
 [node name="lingua" type="Sprite2D" parent="sprite"]
+self_modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(-0.000231679, -64)
-texture = ExtResource("3_7bbt8")
+texture = SubResource("CompressedTexture2D_cu08n")
 hframes = 14
 
 [node name="collision" type="CollisionShape2D" parent="."]
