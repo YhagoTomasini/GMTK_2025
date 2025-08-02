@@ -142,7 +142,7 @@ sources/0 = SubResource("TileSetAtlasSource_2ix4a")
 
 [node name="Aranhinha" parent="." instance=ExtResource("1_sblpm")]
 z_index = 1
-position = Vector2(625, 282)
+position = Vector2(625, 629)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 540)

@@ -29,3 +29,7 @@ func _on_quit_button_down() -> void:
 func _on_close_controls_p_button_down() -> void:
 	controls_panel.visible = false
 	startButton.grab_focus()
+
+
+func _on_creditos_button_down() -> void:
+	get_tree().change_scene_to_file("res://Scene/tela_final.tscn")
