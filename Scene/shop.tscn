@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b68ehgdsfwtgo"]
+[gd_scene load_steps=13 format=3 uid="uid://b68ehgdsfwtgo"]
 
 [ext_resource type="Script" uid="uid://bfv36ffi1onry" path="res://shop.gd" id="1_4qr4x"]
 [ext_resource type="PackedScene" uid="uid://v1xnkuab6ehk" path="res://Shopping/PowerUps/item_1.tscn" id="2_ajnks"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bp2g0pm8i7lh1" path="res://Shopping/PowerUps/item_5.tscn" id="6_vvu0h"]
 [ext_resource type="Texture2D" uid="uid://c2no6ahnfain" path="res://Frames/Pack Rat/loja_teia.png" id="7_yymmd"]
 [ext_resource type="Theme" uid="uid://df36adlkmld5e" path="res://Temas/TemaBotao.tres" id="8_vvu0h"]
+[ext_resource type="Texture2D" uid="uid://d1a2gt6hxs5xr" path="res://Frames/box3d.png" id="10_m74ck"]
+[ext_resource type="Texture2D" uid="uid://h5f6q586cgof" path="res://Frames/acerola_x.png" id="11_lmmku"]
+[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="12_d6i1l"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -55,39 +58,71 @@ grow_vertical = 2
 [node name="ShopSlot1" parent="GridContainer" instance=ExtResource("2_u7vg8")]
 z_index = 1
 layout_mode = 2
-offset_left = -177.0
-offset_top = 71.0
-offset_right = -177.0
-offset_bottom = 71.0
+offset_left = -39.0
+offset_top = 103.0
+offset_right = -39.0
+offset_bottom = 103.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="ShopSlot2" parent="GridContainer" instance=ExtResource("2_u7vg8")]
 z_index = 1
 layout_mode = 2
-offset_left = 322.0
-offset_top = 79.0
-offset_right = 322.0
-offset_bottom = 79.0
+offset_left = 408.0
+offset_top = 94.0
+offset_right = 408.0
+offset_bottom = 94.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="ShopSlot3" parent="GridContainer" instance=ExtResource("2_u7vg8")]
 layout_mode = 2
-offset_left = 45.0
-offset_top = 362.0
-offset_right = 45.0
-offset_bottom = 362.0
+offset_left = 142.0
+offset_top = 404.0
+offset_right = 142.0
+offset_bottom = 404.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="ShopSlot4" parent="GridContainer" instance=ExtResource("2_u7vg8")]
 layout_mode = 2
-offset_left = 505.0
-offset_top = 350.0
-offset_right = 505.0
-offset_bottom = 350.0
+offset_left = 610.0
+offset_top = 385.0
+offset_right = 610.0
+offset_bottom = 385.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+
+[node name="BerriesCounter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BerriesCounter"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 42.0
+offset_right = 162.0
+offset_bottom = 84.0
+texture = ExtResource("10_m74ck")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="AcerolaX" type="Sprite2D" parent="BerriesCounter"]
+position = Vector2(86, 62)
+texture = ExtResource("11_lmmku")
+
+[node name="TextBerries" type="Label" parent="BerriesCounter"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 45.0
+offset_right = 159.0
+offset_bottom = 77.0
+theme = ExtResource("12_d6i1l")
+theme_override_font_sizes/font_size = 24
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

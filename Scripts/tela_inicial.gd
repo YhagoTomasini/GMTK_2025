@@ -22,7 +22,8 @@ func _on_controls_button_down() -> void:
 
 
 func _on_quit_button_down() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
+	print("Saiu do jogo")
 
 
 func _on_close_controls_p_button_down() -> void:

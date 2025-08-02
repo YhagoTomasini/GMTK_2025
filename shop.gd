@@ -8,6 +8,7 @@ extends Control
 @onready var shop_slot_2: Panel = $GridContainer/ShopSlot2
 @onready var shop_slot_3: Panel = $GridContainer/ShopSlot3
 @onready var shop_slot_4: Panel = $GridContainer/ShopSlot4
+@onready var text_berries: Label = $BerriesCounter/TextBerries
 
 
 func _ready() -> void:
@@ -20,15 +21,6 @@ func _ready() -> void:
 	selectItem()
 	
 func selectItem():
-	#if shop_slot_1.get_child_count() > 0:
-		#shop_slot_1.get_child(0).grab_focus()
-	#elif shop_slot_2.get_child_count() > 0:
-		#shop_slot_2.get_child(0).grab_focus()
-	#elif shop_slot_3.get_child_count() > 0:
-		#shop_slot_3.get_child(0).grab_focus()
-	#elif shop_slot_4.get_child_count() > 0:
-		#shop_slot_4.get_child(0).grab_focus()
-	#else:
 	botaoSair.grab_focus()
 		
 	for slot in slots:
@@ -38,17 +30,10 @@ func selectItem():
 	
 
 func _process(_delta: float) -> void:
+	text_berries.text = str(Globals.berries)
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		voltarMain()
-	
-	#if shop_slot_1.get_child_count() == null:
-		#selectItem()
-	#if shop_slot_2.get_child_count() == null:
-		#selectItem()
-	#if shop_slot_3.get_child_count() == null:
-		#selectItem()
-	#if shop_slot_4.get_child_count() == null:
-		#selectItem()
 
 func _on_button_button_down() -> void:
 	voltarMain()

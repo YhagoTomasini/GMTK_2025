@@ -16,4 +16,5 @@ func _on_resume_btn_pressed() -> void:
 	visible = false
 
 func _on_bm_btn_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scene/tela_inicial.tscn")

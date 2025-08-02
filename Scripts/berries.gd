@@ -26,7 +26,9 @@ func _ready() -> void:
 		
 func _physics_process(_delta: float) -> void:
 	if capturado:
-		position = posiTeia.global_position
+		if posiTeia != null:
+			position = posiTeia.global_position
+		
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
