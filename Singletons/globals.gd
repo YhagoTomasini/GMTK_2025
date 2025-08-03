@@ -8,7 +8,7 @@ var teiaForce : float = 150
 
 #VARAVEIS do PERSONAGEM
 var speedRotation : float = 5
-var cdTeia : float = 3
+var cdTeia : float = 10
 var cdCasulo : float = 15
 var teias : int
 var casulos : int

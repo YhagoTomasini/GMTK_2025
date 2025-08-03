@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b27q0xkujf4ya"]
+[gd_scene load_steps=6 format=3 uid="uid://b27q0xkujf4ya"]
 
 [ext_resource type="Script" uid="uid://qehoc83p1ljc" path="res://Scripts/tela_inicial.gd" id="1_11sjr"]
 [ext_resource type="Texture2D" uid="uid://bheb53of8s1ch" path="res://Frames/Capa_GMTK_2025.png" id="2_0uc53"]
 [ext_resource type="Theme" uid="uid://df36adlkmld5e" path="res://Temas/TemaBotao.tres" id="2_m38ec"]
 [ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="3_m38ec"]
+[ext_resource type="AudioStream" uid="uid://dys4yd55c5gbn" path="res://Audios/menu-music-251877.mp3" id="5_gkaaw"]
 
 [node name="TelaInicial" type="Control"]
 layout_mode = 3
@@ -157,6 +158,11 @@ grow_vertical = 2
 theme = ExtResource("2_m38ec")
 text = "	Close"
 flat = true
+
+[node name="temaMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gkaaw")
+volume_db = -4.127
+autoplay = true
 
 [connection signal="button_down" from="VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="VBoxContainer/Controls" to="." method="_on_controls_button_down"]

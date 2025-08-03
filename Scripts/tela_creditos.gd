@@ -13,6 +13,7 @@ var cabo : bool
 @onready var pause_menu: CanvasLayer = $pauseMenu
 
 func _ready() -> void:
+	MusicaJogo.parar()
 	cabo = false
 	musica_credittos.play()
 	
@@ -25,7 +26,7 @@ func fim():
 	
 	
 func _process(delta: float) -> void:
-	if scroll_container.scroll_vertical <= text_node.size.y:
+	if scroll_container.scroll_vertical <= text_node.size.y+680:
 		scroll_container.scroll_vertical += 1 * vel
 	elif !cabo:
 		fim()

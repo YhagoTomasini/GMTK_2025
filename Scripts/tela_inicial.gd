@@ -7,6 +7,7 @@ extends Control
 
 
 func _ready() -> void:
+	MusicaJogo.parar()
 	startButton.grab_focus()
 	controls_panel.visible = false
 

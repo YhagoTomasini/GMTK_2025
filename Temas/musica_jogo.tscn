@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61jahf6cpxgn"]
+
+[ext_resource type="Script" uid="uid://b6jncge55opmn" path="res://Scripts/musica_jogo.gd" id="1_3uwa8"]
+[ext_resource type="AudioStream" uid="uid://dvsbnknlqvjf7" path="res://Audios/music_game.wav" id="1_momsf"]
+
+[node name="MusicaJogo" type="Node2D"]
+script = ExtResource("1_3uwa8")
+
+[node name="tema" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_momsf")
+volume_db = -6.0

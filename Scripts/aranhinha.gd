@@ -58,6 +58,8 @@ var nChiclete : int
 
 
 func _ready() -> void:
+	MusicaJogo.tocar()
+	
 	Globals.casulos = Globals.casulosEstoque
 	text_casulos.text = str(Globals.casulos)
 	

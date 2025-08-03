@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://coru3h047em5j" path="res://Frames/Insetos/bichoseda2.png" id="1_fdhmu"]
 [ext_resource type="Script" uid="uid://knsongnpxhkn" path="res://Scripts/item_2.gd" id="1_i4gkl"]
 [ext_resource type="Texture2D" uid="uid://bskfbbpn4u13b" path="res://Frames/Insetos/bichoseda1.png" id="1_shauj"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="4_f8itx"]
+[ext_resource type="Theme" uid="uid://bd1oimi3msp12" path="res://Temas/TextoTittulo.tres" id="4_f8itx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8itx"]
 texture = ExtResource("1_fdhmu")

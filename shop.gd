@@ -18,6 +18,7 @@ var ratoFalas := [
 	preload("res://Audios/ratAud4.wav")]
 
 func _ready() -> void:
+	MusicaJogo.tocar()
 	for slot in slots:
 		var produtoID = randi() % itens.size()
 		var produto = itens[produtoID].instantiate()

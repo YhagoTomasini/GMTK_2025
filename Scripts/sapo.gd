@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var anim: AnimationPlayer = $anim
 @onready var timer: Timer = $Timer
 
+@onready var damage_area: CollisionShape2D = $linguinha/damage_area
+@onready var collider: CollisionShape2D = $collision
+
 
 @onready var froging: AudioStreamPlayer2D = $froging
 @onready var linguada_aud: AudioStreamPlayer2D = $linguadaAud
@@ -36,6 +39,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		vivo = false
 		sapo_ao_ataque()
 		
+		damage_area.disabled = true
+		collider.disabled = true
 		timer.stop()
 		
 		var tween := get_tree().create_tween()

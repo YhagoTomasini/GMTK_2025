@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://df36adlkmld5e" path="res://Temas/TemaBotao.tres" id="8_vvu0h"]
 [ext_resource type="Texture2D" uid="uid://d1a2gt6hxs5xr" path="res://Frames/box3d.png" id="10_m74ck"]
 [ext_resource type="Texture2D" uid="uid://h5f6q586cgof" path="res://Frames/acerola_x.png" id="11_lmmku"]
-[ext_resource type="Theme" uid="uid://bxbwh8jalibjq" path="res://Temas/TextoCorrido.tres" id="12_d6i1l"]
+[ext_resource type="Theme" uid="uid://bd1oimi3msp12" path="res://Temas/TextoTittulo.tres" id="12_m74ck"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -119,7 +119,7 @@ offset_left = 99.0
 offset_top = 45.0
 offset_right = 159.0
 offset_bottom = 77.0
-theme = ExtResource("12_d6i1l")
+theme = ExtResource("12_m74ck")
 theme_override_font_sizes/font_size = 24
 text = "000"
 horizontal_alignment = 1

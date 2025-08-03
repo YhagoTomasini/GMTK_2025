@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bd1oimi3msp12"]
+
+[ext_resource type="FontFile" uid="uid://6ucm2sd2f6y" path="res://Fonts/Minecraft-Seven_v2.ttf" id="1_dq28k"]
+
+[resource]
+Button/fonts/font = ExtResource("1_dq28k")
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_dq28k")
