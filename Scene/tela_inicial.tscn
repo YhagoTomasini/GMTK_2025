@@ -107,19 +107,20 @@ pivot_offset = Vector2(440, 310)
 [node name="Label" type="Label" parent="ControlsPanel/Panel"]
 layout_mode = 1
 offset_left = 42.0
-offset_top = 300.0
-offset_right = 504.0
+offset_top = 326.0
+offset_right = 842.0
 offset_bottom = 523.0
 theme = ExtResource("3_m38ec")
-text = "Controls:
+text = "CONTROLS
 
-WASD / Arrow Keys / Joystick / D-Pad – Move / Navigate through buttons
+Move / Navigate through buttons _________ WASD / Arrow Keys / Joystick / D-Pad
 
-SPACE / Left Mouse Click / Controller Button 0 – Shoot Web / Interact
+Shoot Web / Interact _________ SPACE / Left Mouse Click / Controller Button 0
 
-E / Right Mouse Click / Controller Button 1 – Create Cocoon
+Create Cocoon _________ E / Right Mouse Click / Controller Button 1
 
-ESC / P / Controller Button 6 – Pause"
+Pause _________ ESC / P / Controller Button 6"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="ControlsPanel/Panel"]
@@ -131,7 +132,7 @@ offset_bottom = 273.0
 theme = ExtResource("3_m38ec")
 text = "What can I do?
 
-In this game, you are ___, a lil spider trying to find shelter from a big storm rolling in. To reach your goal, you'll have to climb as fast as you can while dodging obstacles and protecting yourself from the storm’s signs.
+In this game, you are a lil spider trying to find shelter from a big storm rolling in. To reach your goal, you'll have to climb as fast as you can while dodging obstacles and protecting yourself from the storm’s signs.
 
 For that, you can count on your powerful web! When shot, it can grab berries from far away, cover holes so you can pass through, and block those toads so they won’t bug you anymore.
 

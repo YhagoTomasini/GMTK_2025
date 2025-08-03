@@ -238,6 +238,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			if foraDaCasinha:
 				anim_sprite.play("idle")
+				spider_steps_1.stop()
+				spider_steps_2.stop()
 				anim_sprite.speed_scale = 1
 
 #COLISAO SHOPPING

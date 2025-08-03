@@ -22,7 +22,7 @@ func sapo_ao_ataque():
 		linguada_aud.play()
 		
 	else:
-		anim.play("calado")
+		anim.play("idle")
 	
 func _on_timer_timeout() -> void:
 	sapo_ao_ataque()
@@ -33,14 +33,24 @@ func _on_anim_animation_finished(_anim_name: StringName) -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
-		anim.play("calado")
+		vivo = false
+		sapo_ao_ataque()
+		
+		timer.stop()
+		
+		var tween := get_tree().create_tween()
+		tween.tween_property(self, "position:y", 636.0, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		tween.parallel().tween_property(self, "rotation", rotation + TAU * 2, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		
 		froging.stop()
-		vivo = false
+		
+		await tween.finished
+		
+		queue_free()
 		
 func _on_linguinha_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
-		get_tree().call_deferred("reload_current_scene")
+		body.chuva_a_derrubou()
 		print("papou a aranha")
 	else:
 		pass
