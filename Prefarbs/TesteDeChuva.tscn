@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://diipf0ahhj4yh"]
+[gd_scene load_steps=14 format=3 uid="uid://diipf0ahhj4yh"]
 
 [ext_resource type="Script" uid="uid://chfhvxm02n31q" path="res://Scripts/teste_de_chuva.gd" id="1_3gd2q"]
+[ext_resource type="AudioStream" uid="uid://bsuf5bfad0d4c" path="res://Audios/chovechuvachovesemparar.wav" id="2_3gd2q"]
 
 [sub_resource type="Gradient" id="Gradient_cokcd"]
 colors = PackedColorArray(0.162066, 0.162066, 0.162066, 1, 0.643137, 0.843137, 1, 1)
@@ -206,5 +207,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.847059)
+
+[node name="chuvaAud" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3gd2q")
+volume_db = -4.223
+
+[node name="trovaoAud" type="AudioStreamPlayer2D" parent="."]
+volume_db = -2.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

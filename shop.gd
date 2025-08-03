@@ -10,6 +10,12 @@ extends Control
 @onready var shop_slot_4: Panel = $GridContainer/ShopSlot4
 @onready var text_berries: Label = $BerriesCounter/TextBerries
 
+@onready var rato: AudioStreamPlayer2D = $rato
+var ratoFalas := [
+	preload("res://Audios/ratAud1.wav"),
+	preload("res://Audios/ratAud2.wav"),
+	preload("res://Audios/ratAud3.wav"),
+	preload("res://Audios/ratAud4.wav")]
 
 func _ready() -> void:
 	for slot in slots:
@@ -17,7 +23,11 @@ func _ready() -> void:
 		var produto = itens[produtoID].instantiate()
 		
 		slot.add_child(produto)
-		
+	
+	var falaRatoRand = ratoFalas.pick_random()
+	rato.stream = falaRatoRand
+	rato.play()
+	
 	selectItem()
 	
 func selectItem():

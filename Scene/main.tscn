@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cne0sfdegjkkb"]
+[gd_scene load_steps=51 format=4 uid="uid://cne0sfdegjkkb"]
 
 [ext_resource type="PackedScene" uid="uid://bfo5k8xf7psfo" path="res://Scene/aranhinha.tscn" id="1_sblpm"]
 [ext_resource type="Texture2D" uid="uid://cy8v6t7chfwra" path="res://Frames/Pack Rat/pack_rat.png" id="2_2wwxx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://diipf0ahhj4yh" path="res://Prefarbs/TesteDeChuva.tscn" id="5_3amdw"]
 [ext_resource type="Texture2D" uid="uid://dqlbnfu7mdxee" path="res://Frames/Pack Rat/ratao.png" id="5_mxd2g"]
 [ext_resource type="PackedScene" uid="uid://bt4lvkddro1nr" path="res://Prefarbs/goma.tscn" id="6_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://b8wvvvmkf5plu" path="res://Frames/Pack Rat/rataoLine.png" id="6_p4j74"]
 [ext_resource type="PackedScene" uid="uid://bukpxr3o7sws7" path="res://Prefarbs/sapo.tscn" id="8_75buv"]
 [ext_resource type="PackedScene" uid="uid://c5ke1q6jqogac" path="res://Prefarbs/sapoEsquerda.tscn" id="10_2ix4a"]
 [ext_resource type="Texture2D" uid="uid://p2shuhcachnx" path="res://Frames/tijolo.png" id="11_mxd2g"]
@@ -69,6 +70,30 @@ region = Rect2(400, 0, 100, 100)
 atlas = ExtResource("5_mxd2g")
 region = Rect2(500, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiice"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sor6r"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqe63"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aam5o"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyb1q"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw8bv"]
+atlas = ExtResource("6_p4j74")
+region = Rect2(500, 0, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7y4ci"]
 animations = [{
 "frames": [{
@@ -93,6 +118,29 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiice")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sor6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqe63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aam5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyb1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw8bv")
+}],
+"loop": true,
+"name": &"ratoLine",
+"speed": 5.0
 }]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3amdw"]
@@ -101,6 +149,7 @@ scenes/2/scene = ExtResource("3_2wwxx")
 scenes/3/scene = ExtResource("8_75buv")
 scenes/4/scene = ExtResource("10_2ix4a")
 scenes/5/scene = ExtResource("6_ow1sv")
+scenes/6/scene = ExtResource("8_75buv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2wc2"]
 texture = ExtResource("12_2ix4a")
@@ -151,17 +200,17 @@ zoom = Vector2(2, 2)
 [node name="Control" type="Control" parent="Camera2D"]
 z_index = -5
 layout_mode = 3
-anchors_preset = 0
-offset_left = -640.0
-offset_top = -540.0
-offset_right = -600.0
-offset_bottom = -500.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FinalSemAranha" type="Sprite2D" parent="Camera2D/Control"]
 z_index = -5
+position = Vector2(0, -180)
 scale = Vector2(10, 10)
 texture = ExtResource("20_jbas8")
-centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
 visible = false
@@ -219,7 +268,7 @@ debug_color = Color(1, 0.6, 0.701961, 0.419608)
 position = Vector2(344, 579)
 texture = ExtResource("3_0y2cb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lolja"]
+[node name="ratoAnim" type="AnimatedSprite2D" parent="Lolja"]
 position = Vector2(367, 620)
 sprite_frames = SubResource("SpriteFrames_7y4ci")
 animation = &"idle"
@@ -254,7 +303,7 @@ rendering_quadrant_size = 32
 
 [node name="Layer3" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAdABQAAAAAAAAAAQAdABMAAAAAAAAAAQAcABMAAAAAAAAAAQAcABQAAAAAAAAAAQAbABQAAAAAAAAAAQAbABMAAAAAAAAAAQAaABMAAAAAAAAAAQAaABQAAAAAAAAAAQAZABQAAAAAAAAAAQAZABMAAAAAAAAAAQAYABMAAAAAAAAAAQAYABQAAAAAAAAAAQAXABMAAAAAAAAAAQAXABQAAAAAAAAAAQAXABIAAAAAAAAAAQAYABIAAAAAAAAAAQAZABIAAAAAAAAAAQAaABIAAAAAAAAAAQAbABIAAAAAAAAAAQAcABIAAAAAAAAAAQAdABIAAAAAAAAAAQAcAPj/AAAAAAAAAQATAAcAAAAAAAAAAQAVAAAAAAAAAAAAAQANAPP/AAAAAAAAAQAKAOT/AAAAAAAAAQAdAN//AAAAAAAAAQAOAMz/AAAAAAAAAQANALf/AAAAAAAAAQAcAKP/AAAAAAAAAQAdAKL/AAAAAAAAAQAMAKP/AAAAAAAAAQAOAJz/AAAAAAAAAQAOAJb/AAAAAAAAAQAOAI//AAAAAAAAAQAbAIr/AAAAAAAAAQAMAIH/AAAAAAAAAQAXAH7/AAAAAAAAAQALAGL/AAAAAAAAAQAbAFj/AAAAAAAAAQAMAFT/AAAAAAAAAQAcAFH/AAAAAAAAAQAdAMb/AAAAAAAAAQAUAL7/AAAAAAAAAQAUALP/AAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAdABQAAAAAAAAAAQAdABMAAAAAAAAAAQAcABMAAAAAAAAAAQAcABQAAAAAAAAAAQAbABQAAAAAAAAAAQAbABMAAAAAAAAAAQAaABMAAAAAAAAAAQAaABQAAAAAAAAAAQAZABQAAAAAAAAAAQAZABMAAAAAAAAAAQAYABMAAAAAAAAAAQAYABQAAAAAAAAAAQAXABMAAAAAAAAAAQAXABQAAAAAAAAAAQAXABIAAAAAAAAAAQAYABIAAAAAAAAAAQAZABIAAAAAAAAAAQAaABIAAAAAAAAAAQAbABIAAAAAAAAAAQAcABIAAAAAAAAAAQAdABIAAAAAAAAAAQAcAPj/AAAAAAAAAQATAAcAAAAAAAAAAQAVAAAAAAAAAAAAAQANAPP/AAAAAAAAAQAKAOT/AAAAAAAAAQAdAN//AAAAAAAAAQAOAMz/AAAAAAAAAQANALf/AAAAAAAAAQAcAKP/AAAAAAAAAQAdAKL/AAAAAAAAAQAMAKP/AAAAAAAAAQAOAJz/AAAAAAAAAQAOAJb/AAAAAAAAAQAOAI//AAAAAAAAAQAbAIr/AAAAAAAAAQAMAIH/AAAAAAAAAQAXAH7/AAAAAAAAAQALAGL/AAAAAAAAAQAbAFj/AAAAAAAAAQAMAFT/AAAAAAAAAQAcAFH/AAAAAAAAAQAdAMb/AAAAAAAAAQAUAL7/AAAAAAAAAQAUALP/AAAAAAAAAQAUAA8AAAAAAAAAAwA=")
 tile_set = SubResource("TileSet_1xcnr")
 rendering_quadrant_size = 32
 

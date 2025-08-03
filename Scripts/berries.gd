@@ -7,6 +7,8 @@ var posiTeia : Area2D
 @onready var anim_sprite: AnimatedSprite2D = $anim_sprite
 var escolha_da_frutinha : int 
 
+@onready var berry_pop: AudioStreamPlayer2D = $berryPop
+
 func _ready() -> void:
 	var rot = randi_range(0,1)
 	if rot == 0:
@@ -38,5 +40,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
+		body.berryPop()
+		berry_pop.play()
 		Globals.berries += 1
 		queue_free()

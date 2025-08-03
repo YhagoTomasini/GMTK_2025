@@ -10,6 +10,22 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 
 @onready var teste_de_chuva: Node2D = $"../Camera2D/TesteDeChuva"
 
+#AUDIOS
+@onready var spider_steps_1: AudioStreamPlayer2D = $SpiderSteps1
+@onready var spider_steps_2: AudioStreamPlayer2D = $SpiderSteps2
+@onready var web_shoot_aud: AudioStreamPlayer2D = $webShootAud
+@onready var casulo_aud: AudioStreamPlayer2D = $casuloAud
+@onready var casulo_aud_2: AudioStreamPlayer2D = $casuloAud2
+@onready var berry_pop: AudioStreamPlayer2D = $berryPop
+
+var ratoFalas := [
+	preload("res://Audios/ratAud1.wav"),
+	preload("res://Audios/ratAud2.wav"),
+	preload("res://Audios/ratAud3.wav"),
+	preload("res://Audios/ratAud4.wav")]
+@onready var rato: AudioStreamPlayer2D = $rato
+@onready var rato_anim: AnimatedSprite2D = $"../Lolja/ratoAnim"
+
 #UI
 @onready var visual_cd_teia: Sprite2D = $"../HUD/Control/TeiasCounter/VisualCDTeia"
 @onready var visual_cd_casulo: Sprite2D = $"../HUD/Control/CasulosCounter/VisualCDCasulo"
@@ -17,6 +33,10 @@ const sceneTeia = preload("res://Prefarbs/teia.tscn")
 @onready var text_berries: Label = $"../HUD/Control/BerriesCounter/TextBerries"
 @onready var text_casulos: Label = $"../HUD/Control/CasulosCounter/TextCasulos"
 @onready var text_teias: Label = $"../HUD/Control/TeiasCounter/TextTeias"
+
+#COOLDOWN TIMERS
+@onready var timer_cd_teia: Timer = $cdTimers/timerCDTeia
+@onready var timer_cd_casulo: Timer = $cdTimers/timerCDCasulo
 
 #VARIAVEIS
 var cdTimeTeia : float = 0
@@ -34,6 +54,7 @@ var aQueda : bool
 #SLOW
 var is_slow : bool = false
 var nChiclete : int 
+
 
 
 func _ready() -> void:
@@ -58,6 +79,9 @@ func _ready() -> void:
 	visual_cd_casulo.modulate = Color(1, 1, 1, 0)
 	visual_cd_teia.modulate = Color(1, 1, 1, 0)
 	
+	spider_steps_1.pitch_scale = Globals.pitchScaleSteps
+	spider_steps_2.pitch_scale = Globals.pitchScaleSteps
+	
 func chuva_a_derrubou():
 	print("CHUVAAAAAAAAAAAAAAAA")
 	var posicaoAtual : float = position.y
@@ -80,17 +104,13 @@ func chuva_a_derrubou():
 
 func podeTeia():
 	visual_cd_teia.modulate = Color(1, 0.5, 0.5, 0.5)
-	
-	await get_tree().create_timer(Globals.cdTeia).timeout
-	visual_cd_teia.modulate = Color(1, 1, 1, 0)
-	Globals.teias += 1
-	text_teias.text = str(Globals.teias)
-	vaiTeia = true
+	timer_cd_teia.start(Globals.cdTeia)
 
 func cuspir():
 	Globals.teias -= 1
 	text_teias.text = str(Globals.teias)
 	teiaReturn = false
+	web_shoot_aud.play()
 	var projetil = sceneTeia.instantiate()
 	projetil.aranha = $"."
 	get_parent().add_child(projetil)
@@ -102,12 +122,8 @@ func cuspir():
 
 func generateCasulo():
 	visual_cd_casulo.modulate = Color(1, 0.5, 0.5, 0.5)
-	
-	await get_tree().create_timer(Globals.cdCasulo).timeout
-	visual_cd_casulo.modulate = Color(1, 1, 1, 0)
-	Globals.casulos += 1
-	text_casulos.text = str(Globals.casulos)
-	comCasulo = true
+	timer_cd_casulo.start(Globals.cdCasulo)
+
 
 func casulo():
 	Globals.casulos -= 1
@@ -115,12 +131,19 @@ func casulo():
 	foraDaCasinha = false
 	collisionArana.disabled = true
 	sprite_2d.modulate = Color(0, 0, 0, 1)
+	casulo_aud.play()
+	
+	await get_tree().create_timer(0.1).timeout
+	spider_steps_1.stop()
+	spider_steps_2.stop()
 	anim_sprite.play("Casulo")
 	
 	await get_tree().create_timer(3).timeout
+	casulo_aud_2.play()
 	anim_sprite.play("Descasulo")
 	
 	await get_tree().create_timer(1).timeout
+	casulo_aud_2.stop()
 	foraDaCasinha = true
 	collisionArana.disabled = false
 	sprite_2d.modulate = Color(1, 1, 1, 1)
@@ -191,8 +214,12 @@ func _physics_process(delta: float) -> void:
 		#GOMA
 		if is_slow:
 			velocity = input_vector * (Globals.speed/4)
+			spider_steps_1.pitch_scale = Globals.pitchScaleSteps/2
+			spider_steps_2.pitch_scale = Globals.pitchScaleSteps/2
 		else:
 			velocity = input_vector * Globals.speed
+			spider_steps_1.pitch_scale = Globals.pitchScaleSteps
+			spider_steps_2.pitch_scale = Globals.pitchScaleSteps
 			
 		move_and_slide()
 		
@@ -205,18 +232,27 @@ func _physics_process(delta: float) -> void:
 	#ADICIONANDO ANIMAÇAO
 			if anim_sprite.animation != "Runinng" and foraDaCasinha:
 				anim_sprite.play("Runinng")
+				spider_steps_1.play()
+				spider_steps_2.play()
+				anim_sprite.speed_scale = Globals.runningSpeedScale
 		else:
 			if foraDaCasinha:
 				anim_sprite.play("idle")
+				anim_sprite.speed_scale = 1
 
 #COLISAO SHOPPING
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = true
+		var falaRatoRand = ratoFalas.pick_random()
+		rato.stream = falaRatoRand
+		rato.play()
+		rato_anim.play("ratoLine")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		shop = false
+		rato_anim.play("idle")
 
 #MATAR TEIA
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -242,3 +278,19 @@ func _on_inicio_body_exited(body: Node2D) -> void:
 func _on_area_fim_body_entered(body: Node2D) -> void:
 	if body.name == "Aranhinha":
 		get_tree().change_scene_to_file("res://Scene/tela_final.tscn")
+
+func berryPop():
+	berry_pop.play()
+
+#COOLDOWN TIMERS
+func _on_timer_cd_teia_timeout() -> void:
+	visual_cd_teia.modulate = Color(1, 1, 1, 0)
+	Globals.teias += 1
+	text_teias.text = str(Globals.teias)
+	vaiTeia = true
+
+func _on_timer_cd_casulo_timeout() -> void:
+	visual_cd_casulo.modulate = Color(1, 1, 1, 0)
+	Globals.casulos += 1
+	text_casulos.text = str(Globals.casulos)
+	comCasulo = true

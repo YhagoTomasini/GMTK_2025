@@ -13,6 +13,8 @@ var cdCasulo : float = 15
 var teias : int
 var casulos : int
 var speed = 60.0
+var pitchScaleSteps : float = 2.5
+var runningSpeedScale : float = 1
 
 #ITENS
 var cFlies : int = 0

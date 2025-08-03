@@ -3,22 +3,24 @@ extends CharacterBody2D
 @onready var anim: AnimationPlayer = $anim
 @onready var timer: Timer = $Timer
 
+
+@onready var froging: AudioStreamPlayer2D = $froging
+@onready var linguada_aud: AudioStreamPlayer2D = $linguadaAud
+
 var vivo : bool = true
 
 func _ready() -> void:
 	timer.wait_time = randf_range(2.0, 8.0)
 	
-
-
+	froging.play()
 	
-func _process(_delta: float) -> void:
-	#if damage_area.is_colliding():
-		#print("papou a aranha")
-	pass
 
 func sapo_ao_ataque():
 	if vivo:
 		anim.play("linguada")
+		await get_tree().create_timer(0.2).timeout
+		linguada_aud.play()
+		
 	else:
 		anim.play("calado")
 	
@@ -32,6 +34,8 @@ func _on_anim_animation_finished(_anim_name: StringName) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Teia":
 		anim.play("calado")
+		
+		froging.stop()
 		vivo = false
 		
 func _on_linguinha_body_entered(body: Node2D) -> void:

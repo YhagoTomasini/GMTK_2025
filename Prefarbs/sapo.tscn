@@ -1,7 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bukpxr3o7sws7"]
+[gd_scene load_steps=29 format=3 uid="uid://bukpxr3o7sws7"]
 
 [ext_resource type="Script" uid="uid://ifatvxy1mdkw" path="res://Scripts/sapo.gd" id="1_cu08n"]
 [ext_resource type="Texture2D" uid="uid://ccnqmtm5tfn3j" path="res://Frames/Obstaculos/perereca-Sheet.png" id="2_cu08n"]
+[ext_resource type="AudioStream" uid="uid://cw5sspb0ju1bo" path="res://Audios/frogsAud.wav" id="3_bgm2x"]
+[ext_resource type="AudioStream" uid="uid://c06is6beo3nbd" path="res://Audios/linguadaAud.mp3" id="4_dpjaf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cu08n"]
 load_path = "res://.godot/imported/lingua-Sheet.png-5a4917c4221ebd05718bd0aaa7284047.ctex"
@@ -359,6 +361,17 @@ debug_color = Color(0.69072, 0.456731, 0.536464, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_uie87")
+
+[node name="froging" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bgm2x")
+volume_db = -20.635
+max_distance = 500.0
+
+[node name="linguadaAud" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dpjaf")
+volume_db = -27.238
+pitch_scale = 0.53
+max_distance = 500.0
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="linguinha" to="." method="_on_linguinha_body_entered"]
